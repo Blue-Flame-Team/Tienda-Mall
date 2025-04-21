@@ -1,5 +1,8 @@
 # 💻 Website Project – Phase 1
 
+### 🔗 Live Demo  
+[🚀 View the Website](https://your-live-link.com)
+
 ## 📄 Overview
 This is a collaborative website development project built by a team of developers as part of our web programming course. The project covers the fundamentals of **HTML5**, **CSS (Flexbox & Grid)**, and **JavaScript**, with a focus on semantic structure, responsiveness, and interactivity.
 
