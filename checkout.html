@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chekout</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body>
+    <div class="all">
+    <div class="left"> 
+
+    <h2>Billing Details</h2>
+    
+    <form>
+        <div>
+            <label for="firstName">First Name</label><br>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <br>
+        <div>
+            <label for="companyName">Company Name</label><br>
+            <input type="text" id="companyName" name="companyName">
+        </div>
+        <br>
+        <div>
+            <label for="streetAddress">Street Address</label><br>
+            <input type="text" id="streetAddress" name="streetAddress" required>
+        </div>
+        <br>
+        <div>
+            <label for="apartment">Apartment, floor, etc. (optional)</label><br>
+            <input type="text" id="apartment" name="apartment">
+        </div>
+        <br>
+        <div>
+            <label for="city">Town/City</label><br>
+            <input type="text" id="city" name="city" required>
+        </div>
+        <br>
+        <div>
+            <label for="phoneNumber">Phone Number</label><br>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+        </div>
+        <br>
+        <div>
+            <label for="emailAddress">Email Address</label><br>
+            <input type="email" id="emailAddress" name="emailAddress" required>
+        </div>
+        <br>
+        <label class="save-info-container">
+            <input type="checkbox" checked>
+            <span class="checkmark"></span>
+            Save this information for faster check-out next time
+          </label>
+    </form>
+</div>
+<div class="right">
+    <div class="order-summary-details">
+        <div class="item">
+          <div class="item-info">
+            <img src="C:\Users\bodaf\OneDrive\Desktop\checkout\monitor-screen.png" alt="LCD Monitor">
+            <span>LCD Monitor</span>
+          </div>
+          <span class="item-price">$250</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <img src="C:\Users\bodaf\OneDrive\Desktop\checkout\gamepad.png" alt="HI Gamepad">
+            <span>HI Gamepad</span>
+          </div>
+          <span class="item-price">$100</span>
+        </div>
+        <hr>
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span>$350</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span>Free</span>
+        </div>
+        <hr>
+        <div class="summary-row total">
+          <strong>Total:</strong>
+          <strong>$350</strong>
+        </div>
+        <div class="payment-options">
+          <h3>Payment Options</h3>
+          <label>
+            <input type="radio" name="payment" value="bank">
+            <span>Bank</span>
+            <div class="payment-icons">
+              <img src="C:\Users\bodaf\OneDrive\Desktop\checkout\visa.png" alt="Visa">
+              <img src=
+              "C:\Users\bodaf\OneDrive\Desktop\checkout\logo.png" alt="Mastercard">
+              <img src="C:\Users\bodaf\OneDrive\Desktop\checkout\amex.png" alt="Amex">
+            </div>
+          </label>
+          <label>
+            <input type="radio" name="payment" value="cash" checked>
+            <span>Cash on delivery</span>
+          </label>
+        </div>
+        <div class="coupon-section">
+          <input type="text" placeholder="Coupon Code">
+          <button>Apply Coupon</button>
+        </div>
+        <button class="place-order-button">Place Order</button>
+      </div>
+    </div>
+</div>
+</body>
+
+</html>
