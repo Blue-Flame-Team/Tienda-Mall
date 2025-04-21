@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda - Modern Ecommerce</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles/loader.css">
+    <script src="scripts/loader.js" defer></script>
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
-    <div id="page-loader">
-      <div class="loader-welcome">
-        <div class="loader-orbit">
-          <div class="orbit-shape orbit1"></div>
-          <div class="orbit-shape orbit2"></div>
-          <div class="orbit-shape orbit3"></div>
-          <div class="orbit-shape orbit4"></div>
-        </div>
-        <div class="loader-logo">
-          <span class="logo-icon">🛒</span>
-        </div>
-        <div class="loader-message">أهلاً بك في متجرك العصري!<br><span style="font-size:1.1em;color:#ff3c3c;">تسوق وعيش تجربة مبهرة ✨</span></div>
-      </div>
-    </div>
     <!-- Top Bar -->
     <div class="top-bar">
-        <span>Summer Sale! Free Express Delivery - OFF 50%! <a href="#">ShopNow</a></span>
-        <div class="top-bar-right">
-            <span>English</span>
-            <i class="fa fa-chevron-down"></i>
+        <div class="container top-bar-flex">
+            <span class="top-bar-message">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#">ShopNow</a></span>
+            <div class="top-bar-right">
+                <span>English</span>
+                <i class="fa fa-chevron-down"></i>
+            </div>
         </div>
     </div>
     <!-- Header / Navbar -->
     <header>
         <div class="container nav-container">
-            <div class="logo">Exclusive</div>
+            <div class="logo">Tienda</div>
             <nav>
                 <a href="#">Home</a>
-                <a href="#">Contact</a>
+                <a href="/pages/contact.html">Contact</a>
                 <a href="#">About</a>
                 <a href="#">Sign Up</a>
             </nav>
             <div class="search-cart">
-                <input type="text" placeholder="What are you looking for?">
-                <i class="fa fa-search"></i>
-                <i class="fa fa-heart"></i>
-                <i class="fa fa-shopping-cart"></i>
-                <i class="fa fa-user"></i>
+                <div class="search-box">
+                    <input type="text" placeholder="What are you looking for?">
+                    <span class="search-icon"><img src="assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+                </div>
+                <a href="/pages/wishlist.html" class="icon-link"><img src="assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+                <a href="/pages/cart.html" class="icon-link"><img src="assets/icons/Cart1.png" alt="Cart" class="icon-img"></a>
             </div>
         </div>
     </header>
@@ -68,251 +61,443 @@
                 </ul>
             </aside>
             <!-- Hero Banner -->
-            <section class="hero-banner">
-                <div class="hero-content">
-                    <span class="apple-logo"><i class="fab fa-apple"></i> iPhone 14 Series</span>
-                    <h1>Up to 10% off Voucher</h1>
-                    <a href="#" class="shop-now">Shop Now <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <img src="https://dummyimage.com/500x250/000/fff&text=iPhone+14+Series" alt="iPhone 14 Series">
-            </section>
+            <section class="hero-banner-slider">
+    <div class="hero-slider-track">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+            <div class="hero-slide-content">
+                <img src="assets/images/apple logo.png" alt="Apple Logo" class="hero-apple-logo">
+                <div class="hero-slide-title">iPhone 14 Series</div>
+                <h1 class="hero-slide-main">Up to 10%<br>off Voucher</h1>
+                <a href="#" class="hero-shop-now">Shop Now <span class="arrow">&rarr;</span></a>
+            </div>
+            <img src="assets/images/hero_endframe.png" alt="iPhone 14" class="hero-slide-img">
         </div>
+        <!-- Slide 2: Example, you can add more slides here if you want -->
+        <div class="hero-slide">
+            <div class="hero-slide-content">
+                <img src="assets/images/apple logo.png" alt="Apple Logo" class="hero-apple-logo">
+                <div class="hero-slide-title">iPhone 14 Series</div>
+                <h1 class="hero-slide-main">Special Offer<br>on Accessories</h1>
+                <a href="#" class="hero-shop-now">Shop Now <span class="arrow">&rarr;</span></a>
+            </div>
+            <img src="assets/images/hero_endframe.png" alt="iPhone 14" class="hero-slide-img">
+        </div>
+        <!-- Slide 3: Example -->
+        <div class="hero-slide">
+            <div class="hero-slide-content">
+                <img src="assets/images/apple logo.png" alt="Apple Logo" class="hero-apple-logo">
+                <div class="hero-slide-title">iPhone 14 Series</div>
+                <h1 class="hero-slide-main">Free Shipping<br>on All Orders</h1>
+                <a href="#" class="hero-shop-now">Shop Now <span class="arrow">&rarr;</span></a>
+            </div>
+            <img src="assets/images/hero_endframe.png" alt="iPhone 14" class="hero-slide-img">
+        </div>
+    </div>
+    <div class="hero-slider-dots">
+        <span class="hero-dot active" data-slide="0"></span>
+        <span class="hero-dot" data-slide="1"></span>
+        <span class="hero-dot" data-slide="2"></span>
+    </div>
+</section>
+        </div>
+
         <!-- Flash Sales -->
-        <section class="flash-sales">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Today's</span>
-                    <h2>Flash Sales</h2>
-                    <div class="countdown">
-                        <div><span>03</span><small>Days</small></div>
-                        <div><span>23</span><small>Hours</small></div>
-                        <div><span>19</span><small>Minutes</small></div>
-                        <div><span>56</span><small>Seconds</small></div>
-                    </div>
-                </div>
-                <div class="product-carousel">
-                    <!-- Example product cards -->
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/ff4444/fff&text=Gamepad" alt="Gamepad">
-                        <span class="discount">-40%</span>
-                        <h4>HAVIT HV-G92 Gamepad</h4>
-                        <div class="price"><span>$120</span> <del>$160</del></div>
-                        <div class="stars">★★★★★ <span>(88)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/44ff44/fff&text=Keyboard" alt="Keyboard">
-                        <span class="discount">-35%</span>
-                        <h4>AK-900 Wired Keyboard</h4>
-                        <div class="price"><span>$960</span> <del>$1160</del></div>
-                        <div class="stars">★★★★★ <span>(75)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/4444ff/fff&text=Monitor" alt="Monitor">
-                        <span class="discount">-30%</span>
-                        <h4>IPS LCD Gaming Monitor</h4>
-                        <div class="price"><span>$370</span> <del>$400</del></div>
-                        <div class="stars">★★★★★ <span>(99)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/ffbb44/fff&text=Chair" alt="Chair">
-                        <span class="discount">-25%</span>
-                        <h4>S-Series Comfort Chair</h4>
-                        <div class="price"><span>$375</span> <del>$400</del></div>
-                        <div class="stars">★★★★★ <span>(99)</span></div>
-                    </div>
-                </div>
-                <button class="view-all-btn">View All Products</button>
+<section class="flash-sales">
+    <div class="container">
+        <div class="flash-header-2025">
+            <div class="flash-bar"></div>
+            <div class="flash-label-row">
+                <span class="flash-label">Today's</span>
             </div>
-        </section>
-        <!-- Browse By Category -->
-        <section class="categories">
-            <div class="container">
-                <span class="section-label">Categories</span>
-                <h2>Browse By Category</h2>
-                <div class="category-list">
-                    <div class="category-item"><i class="fa fa-mobile-alt"></i> Phones</div>
-                    <div class="category-item"><i class="fa fa-desktop"></i> Computers</div>
-                    <div class="category-item"><i class="fa fa-clock"></i> SmartWatch</div>
-                    <div class="category-item active"><i class="fa fa-camera"></i> Camera</div>
-                    <div class="category-item"><i class="fa fa-headphones"></i> HeadPhones</div>
-                    <div class="category-item"><i class="fa fa-gamepad"></i> Gaming</div>
-                </div>
-            </div>
-        </section>
-        <!-- Best Selling Products -->
-        <section class="best-selling">
-            <div class="container">
-                <span class="section-label">This Month</span>
-                <h2>Best Selling Products</h2>
-                <div class="product-carousel">
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/ff4444/fff&text=Coat" alt="Coat">
-                        <h4>The north coat</h4>
-                        <div class="price"><span>$260</span> <del>$360</del></div>
-                        <div class="stars">★★★★★ <span>(65)</span></div>
+            <div class="flash-main-row">
+                <span class="flash-title">Flash Sales</span>
+                <div class="flash-timer-2025" id="flash-timer">
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-days">03</span>
+                        <span class="timer-label">Days</span>
                     </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/44ff44/fff&text=Bag" alt="Bag">
-                        <h4>Gucci duffle bag</h4>
-                        <div class="price"><span>$960</span> <del>$1160</del></div>
-                        <div class="stars">★★★★★ <span>(65)</span></div>
+                    <span class="timer-dot">:</span>
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-hours">23</span>
+                        <span class="timer-label">Hours</span>
                     </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/4444ff/fff&text=CPU+Cooler" alt="CPU Cooler">
-                        <h4>RGB liquid CPU Cooler</h4>
-                        <div class="price"><span>$160</span> <del>$170</del></div>
-                        <div class="stars">★★★★★ <span>(65)</span></div>
+                    <span class="timer-dot">:</span>
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-minutes">19</span>
+                        <span class="timer-label">Minutes</span>
                     </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/ffbb44/fff&text=Bookshelf" alt="Bookshelf">
-                        <h4>Small BookShelf</h4>
-                        <div class="price"><span>$360</span></div>
-                        <div class="stars">★★★★★ <span>(65)</span></div>
-                    </div>
-                </div>
-                <button class="view-all-btn">View All</button>
-            </div>
-        </section>
-        <!-- Music Experience Banner -->
-        <section class="music-banner">
-            <div class="container music-banner-content">
-                <div class="music-info">
-                    <span class="section-label green">Categories</span>
-                    <h2>Enhance Your Music Experience</h2>
-                    <div class="countdown">
-                        <div><span>23</span><small>Hour</small></div>
-                        <div><span>05</span><small>Days</small></div>
-                        <div><span>59</span><small>Minutes</small></div>
-                        <div><span>35</span><small>Seconds</small></div>
-                    </div>
-                    <a href="#" class="shop-now green">Buy Now!</a>
-                </div>
-                <img src="https://dummyimage.com/300x200/222/fff&text=Speaker" alt="Speaker">
-            </div>
-        </section>
-        <!-- Explore Products -->
-        <section class="explore-products">
-            <div class="container">
-                <span class="section-label">Our Products</span>
-                <h2>Explore Our Products</h2>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/888/fff&text=Dog+Food" alt="Dog Food">
-                        <h4>Breed Dry Dog Food</h4>
-                        <div class="price"><span>$100</span></div>
-                        <div class="stars">★★★★★ <span>(39)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/555/fff&text=Camera" alt="Camera">
-                        <h4>CANON EOS DSLR Camera</h4>
-                        <div class="price"><span>$360</span></div>
-                        <div class="stars">★★★★★ <span>(95)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/333/fff&text=Laptop" alt="Laptop">
-                        <h4>ASUS FHD Gaming Laptop</h4>
-                        <div class="price"><span>$700</span></div>
-                        <div class="stars">★★★★★ <span>(32)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/ffccff/333&text=Set" alt="Set">
-                        <h4>Curology Product Set</h4>
-                        <div class="price"><span>$500</span></div>
-                        <div class="stars">★★★★★ <span>(145)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/ff4444/fff&text=Car" alt="Car">
-                        <h4>Kids Electric Car</h4>
-                        <div class="price"><span>$960</span></div>
-                        <div class="stars">★★★★★ <span>(65)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/44ff44/fff&text=Cleats" alt="Cleats">
-                        <h4>Jr. Zoom Soccer Cleats</h4>
-                        <div class="price"><span>$1160</span></div>
-                        <div class="stars">★★★★★ <span>(35)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/4444ff/fff&text=Gamepad" alt="Gamepad">
-                        <h4>GP11 Shooter USB Gamepad</h4>
-                        <div class="price"><span>$660</span></div>
-                        <div class="stars">★★★★★ <span>(55)</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://dummyimage.com/150x150/888/fff&text=Jacket" alt="Jacket">
-                        <h4>Quilted Satin Jacket</h4>
-                        <div class="price"><span>$660</span></div>
-                        <div class="stars">★★★★★ <span>(66)</span></div>
-                    </div>
-                </div>
-                <button class="view-all-btn">View All Products</button>
-            </div>
-        </section>
-        <!-- New Arrival -->
-        <section class="new-arrival">
-            <div class="container">
-                <span class="section-label red">Featured</span>
-                <h2>New Arrival</h2>
-                <div class="arrival-grid">
-                    <div class="arrival-large">
-                        <img src="https://dummyimage.com/300x300/000/fff&text=PS5" alt="PlayStation 5">
-                        <div class="arrival-info">
-                            <h3>PlayStation 5</h3>
-                            <p>Black and White version of the PS5 coming out on sale.</p>
-                            <a href="#" class="shop-now">Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="arrival-small">
-                        <img src="https://dummyimage.com/150x150/222/fff&text=Women" alt="Women's Collections">
-                        <div class="arrival-info">
-                            <h3>Women's Collections</h3>
-                            <p>Featured woman collections that give you another vibe.</p>
-                            <a href="#" class="shop-now">Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="arrival-small">
-                        <img src="https://dummyimage.com/150x150/444/fff&text=Speakers" alt="Speakers">
-                        <div class="arrival-info">
-                            <h3>Speakers</h3>
-                            <p>Amazon wireless speakers</p>
-                            <a href="#" class="shop-now">Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="arrival-small">
-                        <img src="https://dummyimage.com/150x150/666/fff&text=Perfume" alt="Perfume">
-                        <div class="arrival-info">
-                            <h3>Perfume</h3>
-                            <p>GUCCI INTENSE OUD EDP</p>
-                            <a href="#" class="shop-now">Shop Now</a>
-                        </div>
+                    <span class="timer-dot">:</span>
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-seconds">56</span>
+                        <span class="timer-label">Seconds</span>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer>
+        </div>
+        <div class="product-carousel">
+            <!-- Products will be rendered here by main.js -->
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Browse By Category Section -->
+<section class="category-section">
+    <div class="container">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="flash-bar" style="margin-bottom: 0;"></div>
+                    <span class="flash-label" style="font-size: 1.1rem;">Categories</span>
+                </div>
+                <span class="cat-title" style="font-size: 2.2rem; font-weight: 700; margin-left: 0; margin-top: 0;">Browse By Category</span>
+            </div>
+            <div class="cat-arrows" style="margin-top: 8px;">
+                <button class="cat-arrow"><span>&larr;</span></button>
+                <button class="cat-arrow"><span>&rarr;</span></button>
+            </div>
+        </div>
+        <div class="category-list" style="margin-top: 28px;">
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-CellPhone.png" alt="Phones">
+                <span>Phones</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Computer.png" alt="Computers">
+                <span>Computers</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-SmartWatch.png" alt="SmartWatch">
+                <span>SmartWatch</span>
+            </div>
+            <div class="category-card active" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Camera.png" alt="Camera">
+                <span>Camera</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Headphone.png" alt="HeadPhones">
+                <span>HeadPhones</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Gamepad.png" alt="Gaming">
+                <span>Gaming</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Best Selling Products Section -->
+<section class="best-selling-section">
+    <div class="container">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="flash-bar" style="margin-bottom: 0;"></div>
+                    <span class="flash-label" style="color:#DB4444;font-size: 1.1rem;">This Month</span>
+                </div>
+                <span class="cat-title" style="font-size: 2.2rem; font-weight: 700; margin-left: 0; margin-top: 0;">Best Selling Products</span>
+            </div>
+            <button class="view-all-btn" style="margin-top: 8px; background: #DB4444; color: #fff; border: none; border-radius: 6px; padding: 12px 36px; font-size: 1.1rem; font-weight: 600; cursor: pointer;">View All</button>
+        </div>
+        <div class="product-carousel best-selling-carousel" style="margin-top: 30px; display: flex; gap: 28px;">
+            <div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/ff4444/fff&text=Coat" alt="Coat">
+    <h4>The north coat</h4>
+    <div class="price"><span class="price-main">$260</span> <del>$360</del></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+            <div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/44ff44/fff&text=Bag" alt="Bag">
+    <h4><em>Gucci duffle bag</em></h4>
+    <div class="price"><span class="price-main">$960</span> <del>$1160</del></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+<div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/4444ff/fff&text=CPU+Cooler" alt="CPU Cooler">
+    <h4>RGB liquid CPU Cooler</h4>
+    <div class="price"><span class="price-main">$160</span> <del>$170</del></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+<div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/d2b48c/fff&text=BookSelf" alt="BookSelf">
+    <h4><em>Small BookSelf</em></h4>
+    <div class="price"><span class="price-main">$360</span></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+        
+<!-- Music Experience Banner -->
+<section class="music-experience-banner">
+  <div class="music-banner-container">
+    <div class="music-banner-left">
+      <span class="music-cat-label">Categories</span>
+      <h2 class="music-banner-title">Enhance Your<br>Music Experience</h2>
+      <div class="music-banner-timer-row">
+        <div class="music-timer-circle"><span class="music-timer-num">23</span><span class="music-timer-label">Hours</span></div>
+        <div class="music-timer-circle"><span class="music-timer-num">05</span><span class="music-timer-label">Days</span></div>
+        <div class="music-timer-circle"><span class="music-timer-num">59</span><span class="music-timer-label">Minutes</span></div>
+        <div class="music-timer-circle"><span class="music-timer-num">35</span><span class="music-timer-label">Seconds</span></div>
+      </div>
+      <button class="music-buy-btn">Buy Now!</button>
+    </div>
+    <div class="music-banner-right">
+      <img src="assets/images/jbl.png" alt="JBL Speaker" class="music-banner-img">
+    </div>
+  </div>
+</section>
+
+<!-- Explore Our Products Section -->
+<section>
+    <div class="container">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+            <span style="background: #DB4444; width: 20px; height: 20px; border-radius: 4px;"></span>
+            <span style="color: #DB4444; font-weight: 500;">Our Products</span>
+        </div>
+        <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 32px;">Explore Our Products</h2>
+        <div class="products-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <span class="product-badge new">NEW</span>
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/dog-food.png" alt="Breed Dry Dog Food">
+                <div class="product-details">
+                    <div class="product-title">Breed Dry Dog Food</div>
+                    <div class="product-price-rating">
+                        <span class="price">$100</span>
+                        <span class="stars">★★★☆☆</span>
+                        <span class="reviews">(35)</span>
+                    </div>
+                    <div class="color-options">
+                        <span class="color-dot" style="background:#FFD700;"></span>
+                        <span class="color-dot" style="background:#C0C0C0;"></span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/camera.png" alt="CANON EOS DSLR Camera">
+                <div class="product-details">
+                    <div class="product-title">CANON EOS DSLR Camera</div>
+                    <div class="product-price-rating">
+                        <span class="price">$360</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(95)</span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/laptop.png" alt="ASUS FHD Gaming Laptop">
+                <div class="product-details">
+                    <div class="product-title">ASUS FHD Gaming Laptop</div>
+                    <div class="product-price-rating">
+                        <span class="price">$700</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(325)</span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/curology.png" alt="Curology Product Set">
+                <div class="product-details">
+                    <div class="product-title">Curology Product Set</div>
+                    <div class="product-price-rating">
+                        <span class="price">$500</span>
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(145)</span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <span class="product-badge new">NEW</span>
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/kids-car.png" alt="Kids Electric Car">
+                <div class="product-details">
+                    <div class="product-title">Kids Electric Car</div>
+                    <div class="product-price-rating">
+                        <span class="price">$960</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(65)</span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 6 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/cleats.png" alt="Jr. Zoom Soccer Cleats">
+                <div class="product-details">
+                    <div class="product-title">Jr. Zoom Soccer Cleats</div>
+                    <div class="product-price-rating">
+                        <span class="price">$1160</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(35)</span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 7 -->
+            <div class="product-card">
+                <span class="product-badge new">NEW</span>
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/gamepad.png" alt="GP11 Shooter USB Gamepad">
+                <div class="product-details">
+                    <div class="product-title">GP11 Shooter USB Gamepad</div>
+                    <div class="product-price-rating">
+                        <span class="price">$660</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(55)</span>
+                    </div>
+                    <div class="color-options">
+                        <span class="color-dot" style="background:#111;"></span>
+                        <span class="color-dot" style="background:#ff3c3c;"></span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 8 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/jacket.png" alt="Quilted Satin Jacket">
+                <div class="product-details">
+                    <div class="product-title">Quilted Satin Jacket</div>
+                    <div class="product-price-rating">
+                        <span class="price">$660</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(55)</span>
+                    </div>
+                    <button class="add-to-cart">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 32px;">
+            <button class="view-all-products">View All Products</button>
+        </div>
+    </div>
+</section>
+
+  
+
+    <!-- Explore Our Products Section End -->
+    <!-- Services Section Start -->
+    <section class="services-section">
+        <div class="container services-container">
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="assets/icons/Services.png" alt="Delivery">
+                </div>
+                <div class="service-title">FREE AND FAST DELIVERY</div>
+                <div class="service-desc">Free delivery for all orders over $140</div>
+            </div>
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="assets/icons/Services2.png" alt="Customer Service">
+                </div>
+                <div class="service-title">24/7 CUSTOMER SERVICE</div>
+                <div class="service-desc">Friendly 24/7 customer support</div>
+            </div>
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="assets/icons/Services3.png" alt="Money Back Guarantee">
+                </div>
+                <div class="service-title">MONEY BACK GUARANTEE</div>
+                <div class="service-desc">We return money within 30 days</div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+        <img src="assets/icons/icons_arrow-up.png" alt="Up" />
+    </button>
+
+
+    <footer class="footer-main">
         <div class="container footer-container">
             <div class="footer-col">
-                <div class="logo">Exclusive</div>
-                <span>Subscribe</span>
+                <div class="footer-logo">Exclusive</div>
+                <div class="footer-title">Subscribe</div>
+                <div class="footer-desc">Get 10% off your first order</div>
                 <form class="subscribe-form">
                     <input type="email" placeholder="Enter your email">
-                    <button><i class="fa fa-paper-plane"></i></button>
+                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
                 </form>
-                <small>Get 10% off your first order</small>
             </div>
             <div class="footer-col">
-                <span>Support</span>
-                <ul>
-                    <li>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</li>
-                    <li>exclusive@gmail.com</li>
-                    <li>+88015-88888-9999</li>
-                </ul>
+                <div class="footer-title">Support</div>
+                <div class="footer-desc">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</div>
+                <div class="footer-desc">exclusive@gmail.com</div>
+                <div class="footer-desc">+88015-88888-9999</div>
             </div>
             <div class="footer-col">
-                <span>Account</span>
-                <ul>
+                <div class="footer-title">Account</div>
+                <ul class="footer-list">
                     <li>My Account</li>
                     <li>Login / Register</li>
                     <li>Cart</li>
@@ -321,8 +506,8 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <span>Quick Link</span>
-                <ul>
+                <div class="footer-title">Quick Link</div>
+                <ul class="footer-list">
                     <li>Privacy Policy</li>
                     <li>Terms Of Use</li>
                     <li>FAQ</li>
@@ -330,21 +515,23 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <span>Download App</span>
-                <img src="https://dummyimage.com/100x30/222/fff&text=Google+Play" alt="Google Play">
-                <img src="https://dummyimage.com/100x30/222/fff&text=App+Store" alt="App Store">
-                <small>Save $3 with App New User Only</small>
+                <div class="footer-title">Download App</div>
+                <div class="footer-desc">Save $3 with App New User Only</div>
+                <div class="footer-apps">
+    <img class="footer-app-img" src="assets/images/APP.png" alt="Download App QR and Badges">
+</div>
+                <div class="footer-socials">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; Copyright Rimel 2022. All right reserved</span>
-            <div class="footer-socials">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-linkedin-in"></i>
-            </div>
+            <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
         </div>
     </footer>
+  <script src="scripts/updateProductImages.js"></script>
 </body>
 </html>
