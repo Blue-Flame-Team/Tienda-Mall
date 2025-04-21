@@ -1,7 +1,7 @@
 # 💻 Website Project – Phase 1
 
 ### 🔗 Live Demo  
-[🚀 View the Website](https://blue-flame-team.github.io/Tienda-Mall/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-blue?style=for-the-badge&logo=github)](https://blue-flame-team.github.io/Tienda-Mall/)
 
 ## 📄 Overview
 This is a collaborative website development project built by a team of developers as part of our web programming course. The project covers the fundamentals of **HTML5**, **CSS (Flexbox & Grid)**, and **JavaScript**, with a focus on semantic structure, responsiveness, and interactivity.
