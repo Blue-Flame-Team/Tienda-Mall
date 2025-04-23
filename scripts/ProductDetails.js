@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const mainImg = document.querySelector('.main-img');
 const mainImgFloat = document.querySelector('.main-img-float');
 const floatingImg = document.querySelector('.floating-img');
@@ -776,4 +775,3 @@ document.body.addEventListener("click", (e) => {
     cartBox.classList.remove("show");
   }
 });
->>>>>>> b518cc1015a9d72cbb3066bc69a8cd0496751b80
