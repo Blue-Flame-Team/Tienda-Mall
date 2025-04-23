@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda - Modern Ecommerce</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile-nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles/loader.css">
+    <script src="scripts/cart.js"></script>
     <script src="scripts/loader.js" defer></script>
     <script src="scripts/main.js" defer></script>
+    <script src="scripts/mobile-nav.js" defer></script>
+    
 </head>
 <body>
     <!-- Top Bar -->
@@ -29,22 +32,62 @@
     <header>
         <div class="container nav-container">
             <div class="logo">Tienda</div>
+<button class="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
             <nav>
-                <a href="#">Home</a>
-                <a href="/pages/contact.html">Contact</a>
-                <a href="#">About</a>
-                <a href="#">Sign Up</a>
+                <a href="index.html" class="active-link">Home</a>
+                <a href="pages/contact.html">Contact</a>
+                <a href="pages/about.html">About</a>
+                <a href="pages/account.html">Account</a>
+                <a href="pages/signup.html">Sign Up</a>
             </nav>
             <div class="search-cart">
                 <div class="search-box">
                     <input type="text" placeholder="What are you looking for?">
                     <span class="search-icon"><img src="assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
                 </div>
-                <a href="/pages/wishlist.html" class="icon-link"><img src="assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
-                <a href="/pages/cart.html" class="icon-link"><img src="assets/icons/Cart1.png" alt="Cart" class="icon-img"></a>
+                <a href="pages/wishlist.html" class="icon-link"><img src="assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+                <a href="pages/cart.html" class="icon-link" style="position:relative;">
+                  <img src="assets/icons/Cart1.png" alt="Cart" class="icon-img">
+                  <span class="nav-cart-after" style="position:absolute;top:-8px;right:-8px;background:#DB4444;color:#fff;font-size:0.9em;padding:2px 7px;border-radius:50%;display:none;z-index:2;">0</span>
+                </a>
+                <div class="profile-menu-container" style="display:none; position:relative;">
+                  <div class="profile-icon" id="profileIcon" style="width:40px;height:40px;border-radius:50%;background:#DB4444;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                    <svg width="22" height="22" fill="#fff" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+                  </div>
+                  <div class="profile-dropdown" id="profileDropdown" style="display:none;position:absolute;top:48px;right:0;background:linear-gradient(135deg,#444 60%,#b47cff 100%);border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.18);padding:18px 0 10px 0;min-width:220px;z-index:100;">
+                    <a href="pages/account.html" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">👤</span>Manage My Account</a>
+                    <a href="#" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">📦</span>My Order</a>
+                    <a href="#" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">❌</span>My Cancellations</a>
+                    <a href="#" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">⭐</span>My Reviews</a>
+                    <a href="#" id="logoutBtn" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">↩️</span>Logout</a>
+                  </div>
+                </div>
             </div>
         </div>
     </header>
+    <!-- Mobile Nav Overlay & Dropdown -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav-dropdown">
+      <button class="close-mobile-nav" aria-label="Close Menu"><i class="fa fa-times"></i></button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/account.html">Account</a>
+        <a href="pages/signup.html">Sign Up</a>
+      </nav>
+      <div class="search-cart">
+        <div class="search-box">
+          <input type="text" placeholder="What are you looking for?">
+          <span class="search-icon"><img src="assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+        </div>
+        <a href="pages/wishlist.html" class="icon-link"><img src="assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+        <a href="pages/cart.html" class="icon-link" style="position:relative;">
+          <img src="assets/icons/Cart1.png" alt="Cart" class="icon-img">
+          <span class="nav-cart-after" style="position:absolute;top:-8px;right:-8px;background:#DB4444;color:#fff;font-size:0.9em;padding:2px 7px;border-radius:50%;display:none;z-index:2;">0</span>
+        </a>
+      </div>
+    </div>
     <main>
         <div class="container main-content">
             <!-- Sidebar -->
@@ -279,7 +322,6 @@
     </div>
   </div>
 </section>
-
 <!-- Explore Our Products Section -->
 <section>
     <div class="container">
@@ -308,7 +350,7 @@
                         <span class="color-dot" style="background:#FFD700;"></span>
                         <span class="color-dot" style="background:#C0C0C0;"></span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
             <!-- Product Card 2 -->
@@ -325,7 +367,7 @@
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(95)</span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
             <!-- Product Card 3 -->
@@ -342,7 +384,7 @@
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(325)</span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
             <!-- Product Card 4 -->
@@ -359,7 +401,7 @@
                         <span class="stars">★★★★☆</span>
                         <span class="reviews">(145)</span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
             <!-- Product Card 5 -->
@@ -377,7 +419,7 @@
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(65)</span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
             <!-- Product Card 6 -->
@@ -394,7 +436,7 @@
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(35)</span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
             <!-- Product Card 7 -->
@@ -416,7 +458,7 @@
                         <span class="color-dot" style="background:#111;"></span>
                         <span class="color-dot" style="background:#ff3c3c;"></span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
             <!-- Product Card 8 -->
@@ -433,12 +475,12 @@
                         <span class="stars">★★★★★</span>
                         <span class="reviews">(55)</span>
                     </div>
-                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
         </div>
         <div style="display: flex; justify-content: center; margin-top: 32px;">
-            <button class="view-all-products">View All Products</button>
+            <button class="view-all-btn">View All Products</button>
         </div>
     </div>
 </section>
@@ -499,11 +541,11 @@
             <div class="footer-col">
                 <div class="footer-title">Account</div>
                 <ul class="footer-list">
-                    <li>My Account</li>
-                    <li>Login / Register</li>
-                    <li>Cart</li>
-                    <li>Wishlist</li>
-                    <li>Shop</li>
+                    <li><a href="pages/account.html">My Account</a></li>
+                    <li><a href="pages/signup.html">Login / Register</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/wishlist.html">Wishlist</a></li>
+                    <li><a href="index.html">Shop</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -512,7 +554,7 @@
                     <li>Privacy Policy</li>
                     <li>Terms Of Use</li>
                     <li>FAQ</li>
-                    <li>Contact</li>
+                    <li><a href="pages/contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -533,9 +575,53 @@
             <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
         </div>
     </footer>
-  <script src="scripts/updateProductImages.js"></script>
+  <script>
+// Update cart badge on page load
+function updateCartBadge() {
+  if (window.cartAPI) {
+    const badge = document.querySelector('.nav-cart-after');
+    const count = window.cartAPI.getCartCount();
+    if (badge) {
+      badge.textContent = count;
+      badge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', updateCartBadge);
+</script>
+<script src="scripts/updateProductImages.js"></script>
+  <script src="scripts/productLinks.js"></script>
+<script>
+// Show/hide profile icon and dropdown based on login state
+function checkLoginProfileMenu() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const profileMenu = document.querySelector('.profile-menu-container');
+  if (profileMenu) profileMenu.style.display = isLoggedIn ? 'block' : 'none';
+}
+checkLoginProfileMenu();
+// Profile dropdown logic
+const profileIcon = document.getElementById('profileIcon');
+const profileDropdown = document.getElementById('profileDropdown');
+if (profileIcon && profileDropdown) {
+  profileIcon.addEventListener('click', function(e) {
+    e.stopPropagation();
+    profileDropdown.style.display = (profileDropdown.style.display === 'block') ? 'none' : 'block';
+  });
+  document.body.addEventListener('click', function() {
+    profileDropdown.style.display = 'none';
+  });
+  profileDropdown.addEventListener('click', function(e){e.stopPropagation();});
+}
+// Logout logic
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    window.location.reload();
+  });
+}
+</script>
 </body>
 </html>
-=======
-
->>>>>>> 133c27e147796422e5fe275941fea2b63504cc10

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>Login | Tienda</title>
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../styles/style.css">
@@ -42,23 +41,26 @@
         </div>
     </header>
     <!-- Main Login Content -->
-    <main style="min-height: 60vh;">
-      <div class="login-main-container">
-        <div class="image-container">
-          <img src="../assets/images/Side Image.png" class="left-image" alt="Login Illustration">
+    <main>
+  <div class="login-container">
+    <div class="login-image">
+      <img src="../assets/images/Side Image.png" alt="Login Visual">
+    </div>
+    <div class="login-form-section">
+      <form class="login-form" id="login-form">
+        <h2>Log in to Exclusive</h2>
+        <p>Enter your details below</p>
+        <input type="text" id="login-email" name="email" placeholder="Email or Phone Number" required>
+        <input type="password" id="login-password" name="password" placeholder="Password" required>
+        <div class="form-actions">
+          <button class="btn-login" type="submit">Log In</button>
+          <a class="forgot-link" href="#">Forget Password?</a>
         </div>
-        <form class="login-form">
-            <h2>Log in to Tienda</h2>
-            <p>Enter your details below</p>
-            <input type="text" id="email" name="email" placeholder="Email or Phone Number">
-            <input type="password" id="password" name="password" placeholder="Password">
-            <div class="button-link-container">
-              <button type="submit">Log In</button>
-              <a href="#">Forgot Password?</a>
-            </div>
-          </form>
-      </div>
-    </main>
+        <div id="login-error" style="color:red;margin-top:10px;"></div>
+      </form>
+    </div>
+  </div>
+</main>
     <!-- Footer -->
     
     <footer class="footer-main">
@@ -115,25 +117,19 @@
             <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
         </div>
     </footer>
+<script>
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  if(email === 'ahmed@test.com' && password === 'ahmed123') {
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userEmail', email);
+    window.location.href = '../index.html';
+  } else {
+    document.getElementById('login-error').textContent = 'Invalid email or password';
+  }
+});
+</script>
 </body>
-=======
-    <title>Document</title>
-    <link rel="stylesheet" href="project.css">
-</head>
-<body>
-    <div class="image-container">
-      <img src="C:\Users\bodaf\OneDrive\Desktop\login w checkout\background telephone.png"  class="left-image">
-    </div>
-    <form>
-        <h2>Log in to Exclusive</h2>
-        <p>Enter your details below</p>
-        <input type="text" id="email" name="email" placeholder="Email or Phone Number"><br><br>
-        <input type="password" id="password" name="password" placeholder="Password"><br><br>
-        <div class="button-link-container">
-          <button type="submit">Login</button>
-          <a href="create new pasword.html">Forgot Password?</a>
-        </div>
-      </form>
-  </body>
->>>>>>> 133c27e147796422e5fe275941fea2b63504cc10
 </html>

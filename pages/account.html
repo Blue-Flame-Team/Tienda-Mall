@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account - Profile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/account.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/profile-dropdown.css" />
+
+  </head>
+  <body>
+
+
+     <!-- Top Bar -->
+     <div class="top-bar">
+      <div class="container top-bar-flex">
+          <span class="top-bar-message">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#">ShopNow</a></span>
+          <div class="top-bar-right">
+              <span>English</span>
+              <i class="fa fa-chevron-down"></i>
+          </div>
+      </div>
+  </div>
+  <!-- Header / Navbar -->
+  <header>
+      <div class="container nav-container">
+          <div class="logo">Tienda</div>
+          <nav>
+              <a href="../index.html">Home</a>
+              <a href="/pages/contact.html">Contact</a>
+              <a href="#">About</a>
+              <a href="#">Sign Up</a>
+          </nav>
+          <div class="search-cart">
+              <div class="search-box">
+                  <input type="text" placeholder="What are you looking for?">
+                  <span class="search-icon"><img src="../assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+              </div>
+                <a href="wishlist.html" class="icon-link"><img src="../assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+                <a href="cart.html" class="icon-link"><img src="../assets/icons/Cart1.png" alt="Cart" class="icon-img"></a>
+                <div class="profile-menu-container" style="display:none; position:relative;">
+                  <div class="profile-icon" id="profileIcon" style="width:40px;height:40px;border-radius:50%;background:#DB4444;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                    <svg width="22" height="22" fill="#fff" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+                  </div>
+                  <div class="profile-dropdown" id="profileDropdown">
+  <a href="account.html" class="profile-dropdown-item">
+    <img src="../assets/icons/user.png" alt="Account" />
+    Manage My Account
+  </a>
+  <a href="#" class="profile-dropdown-item">
+    <img src="../assets/icons/icon-mallbag.png" alt="Order" />
+    My Order
+  </a>
+  <a href="#" class="profile-dropdown-item">
+    <img src="../assets/icons/icon-cancel.png" alt="Cancellations" />
+    My Cancellations
+  </a>
+  <a href="#" class="profile-dropdown-item">
+    <img src="../assets/icons/Icon-Reviews.png" alt="Reviews" />
+    My Reviews
+  </a>
+  <a href="#" id="logoutBtn" class="profile-dropdown-item">
+    <img src="../assets/icons/Icon-logout.png" alt="Logout" />
+    Logout
+  </a>
+</div>
+                </div>
+          </div>
+      </div>
+  </header>
+
+
+
+    <div class="page-container">
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb">
+        <a href="#" class="breadcrumb-link">Home</a>
+        <span class="breadcrumb-divider"></span>
+        <span class="breadcrumb-current">My Account</span>
+      </nav>
+
+      <!-- Welcome Message -->
+      <section class="welcome-section">
+        <p class="welcome-message">
+          <span>Welcome!</span>
+          <span class="user-name">Md Rimel</span>
+        </p>
+      </section>
+
+      <!-- Main Content Area -->
+      <main class="account-content">
+        <!-- Sidebar Navigation -->
+        <aside class="account-sidebar">
+          <section class="sidebar-section">
+            <h3 class="sidebar-heading">Manage My Account</h3>
+            <nav class="sidebar-nav">
+              <a href="#" class="sidebar-link active">My Profile</a>
+              <a href="#" class="sidebar-link">Address Book</a>
+              <a href="#" class="sidebar-link">My Payment Options</a>
+            </nav>
+          </section>
+
+          <section class="sidebar-section">
+            <h3 class="sidebar-heading">My Orders</h3>
+            <nav class="sidebar-nav">
+              <a href="#" class="sidebar-link">My Returns</a>
+              <a href="#" class="sidebar-link">My Cancellations</a>
+            </nav>
+          </section>
+
+          <section class="sidebar-section">
+            <h3 class="sidebar-heading">My WishList</h3>
+          </section>
+        </aside>
+
+        <!-- Profile Edit Form -->
+        <section class="profile-edit">
+          <h2 class="profile-heading">Edit Your Profile</h2>
+          <form class="profile-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  value="Md"
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  value="Rimel"
+                  class="form-input"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  value="rimel1111@gmail.com"
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="address" class="form-label">Address</label>
+                <input
+                  type="text"
+                  id="address"
+                  value="Kingston, 5236, United State"
+                  class="form-input"
+                />
+              </div>
+            </div>
+
+            <div class="password-section">
+              <h3 class="password-heading">Password Changes</h3>
+              <input
+                type="password"
+                placeholder="Current Password"
+                class="form-input"
+              />
+              <input
+                type="password"
+                placeholder="New Password"
+                class="form-input"
+              />
+              <input
+                type="password"
+                placeholder="Confirm New Password"
+                class="form-input"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="cancel-button">Cancel</button>
+              <button type="submit" class="save-button">Save Changes</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+
+    
+    <footer class="footer-main">
+      <div class="container footer-container">
+          <div class="footer-col">
+              <div class="footer-logo">Exclusive</div>
+              <div class="footer-title">Subscribe</div>
+              <div class="footer-desc">Get 10% off your first order</div>
+              <form class="subscribe-form">
+                  <input type="email" placeholder="Enter your email">
+                  <button type="submit"><i class="fa fa-paper-plane"></i></button>
+              </form>
+          </div>
+          <div class="footer-col">
+              <div class="footer-title">Support</div>
+              <div class="footer-desc">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</div>
+              <div class="footer-desc">exclusive@gmail.com</div>
+              <div class="footer-desc">+88015-88888-9999</div>
+          </div>
+          <div class="footer-col">
+              <div class="footer-title">Account</div>
+              <ul class="footer-list">
+                  <li>My Account</li>
+                  <li>Login / Register</li>
+                  <li>Cart</li>
+                  <li>Wishlist</li>
+                  <li>Shop</li>
+              </ul>
+          </div>
+          <div class="footer-col">
+              <div class="footer-title">Quick Link</div>
+              <ul class="footer-list">
+                  <li>Privacy Policy</li>
+                  <li>Terms Of Use</li>
+                  <li>FAQ</li>
+                  <li>Contact</li>
+              </ul>
+          </div>
+          <div class="footer-col">
+              <div class="footer-title">Download App</div>
+              <div class="footer-desc">Save $3 with App New User Only</div>
+              <div class="footer-apps">
+  <img class="footer-app-img" src="assets/images/APP.png" alt="Download App QR and Badges">
+</div>
+              <div class="footer-socials">
+                  <i class="fab fa-facebook-f"></i>
+                  <i class="fab fa-twitter"></i>
+                  <i class="fab fa-instagram"></i>
+                  <i class="fab fa-linkedin-in"></i>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
+      </div>
+  </footer>
+  <script>
+function checkLoginProfileMenu() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const profileMenu = document.querySelector('.profile-menu-container');
+  if (profileMenu) profileMenu.style.display = isLoggedIn ? 'block' : 'none';
+}
+checkLoginProfileMenu();
+const profileIcon = document.getElementById('profileIcon');
+const profileDropdown = document.getElementById('profileDropdown');
+if (profileIcon && profileDropdown) {
+  profileIcon.addEventListener('click', function(e) {
+    e.stopPropagation();
+    profileDropdown.style.display = (profileDropdown.style.display === 'block') ? 'none' : 'block';
+  });
+  document.body.addEventListener('click', function() {
+    profileDropdown.style.display = 'none';
+  });
+  profileDropdown.addEventListener('click', function(e){e.stopPropagation();});
+}
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    window.location.reload();
+  });
+}
+</script>
+</body>
+</html>
