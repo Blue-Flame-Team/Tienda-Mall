@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Tienda</title>
+    <meta http-equiv="refresh" content="0;url=login.php">
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/mobile-nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../scripts/mobile-nav.js" defer></script>
+    <script>window.location.href = 'login.php';</script>
 </head>
 <body>
     <!-- Top Bar -->
@@ -24,6 +28,7 @@
     <header>
         <div class="container nav-container">
             <div class="logo">Tienda</div>
+            <button class="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
             <nav>
                 <a href="../index.html">Home</a>
                 <a href="contact.html">Contact</a>
@@ -40,6 +45,31 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Nav Overlay & Dropdown -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav-dropdown">
+      <button class="close-mobile-nav" aria-label="Close Menu"><i class="fa fa-times"></i></button>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./about.html">About</a>
+        <a href="./account.html">Account</a>
+        <a href="./signup.php">Sign Up</a>
+      </nav>
+      <div class="search-cart">
+        <div class="search-box">
+          <input type="text" placeholder="What are you looking for?">
+          <span class="search-icon"><img src="../assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+        </div>
+        <a href="./wishlist.html" class="icon-link"><img src="../assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+        <a href="./cart.html" class="icon-link" style="position:relative;">
+          <img src="../assets/icons/Cart1.png" alt="Cart" class="icon-img">
+          <span class="nav-cart-after" style="position:absolute;top:-8px;right:-8px;background:#DB4444;color:#fff;font-size:0.9em;padding:2px 7px;border-radius:50%;display:none;z-index:2;">0</span>
+        </a>
+      </div>
+    </div>
+    
     <!-- Main Login Content -->
     <main>
   <div class="login-container">
@@ -122,13 +152,40 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const email = document.getElementById('login-email').value.trim();
   const password = document.getElementById('login-password').value;
-  if(email === 'ahmed@test.com' && password === 'ahmed123') {
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('userEmail', email);
-    window.location.href = '../index.html';
-  } else {
-    document.getElementById('login-error').textContent = 'Invalid email or password';
-  }
+
+  // Create form data
+  const formData = {
+    email: email,
+    password: password
+  };
+  
+  // Send AJAX request
+  fetch('../api/login.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      // Save login data in localStorage for front-end use
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userName', data.user.name);
+      localStorage.setItem('userId', data.user.id);
+      
+      // Redirect to homepage
+      window.location.href = '../index.html';
+    } else {
+      document.getElementById('login-error').textContent = data.message || 'Invalid email or password';
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    document.getElementById('login-error').textContent = 'Connection error. Please try again.';
+  });
 });
 </script>
 </body>

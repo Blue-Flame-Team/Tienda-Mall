@@ -1,0 +1,410 @@
+/* Modern Admin Panel CSS for Tienda E-commerce - RTL Support */
+
+:root {
+    --primary: #4361ee;
+    --secondary: #3f37c9;
+    --success: #2ecc71;
+    --info: #3498db;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --card-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03),
+                   0 0.9375rem 1.40625rem rgba(4,9,20,0.03),
+                   0 0.25rem 0.53125rem rgba(4,9,20,0.05),
+                   0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+}
+
+/* Basics & Typography */
+body {
+    font-family: 'Cairo', 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Sidebar Styling */
+.main-sidebar {
+    right: 0;
+    left: auto;
+    background: linear-gradient(180deg, #2b354f 0%, #222b45 100%);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 8px;
+    margin: 4px 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--primary);
+}
+
+.nav-sidebar .nav-link p {
+    transition: margin 0.3s ease-in-out;
+}
+
+.sidebar-mini.sidebar-collapse .nav-sidebar .nav-link p {
+    margin-right: 500px;
+}
+
+.nav-sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.brand-link {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 15px 0.5rem;
+    height: 60px;
+}
+
+.brand-text {
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+
+/* Main Content */
+.content-wrapper, .main-footer {
+    margin-right: 250px;
+    margin-left: 0;
+}
+
+.content-wrapper {
+    background-color: #f4f6f9;
+    padding: 20px;
+    transition: margin-right 0.3s ease-in-out;
+}
+
+.sidebar-collapse .content-wrapper {
+    margin-right: 4.6rem;
+}
+
+.content-header {
+    padding: 15px 0;
+}
+
+.content-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #3c4b64;
+}
+
+/* Cards Styling */
+.card {
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    border: none;
+    margin-bottom: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.25rem 1.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Stats Cards */
+.info-box {
+    box-shadow: var(--card-shadow);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.info-box-icon {
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+.info-box-text {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #666;
+}
+
+.info-box-number {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Table Styling */
+.table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+.table thead th {
+    border-bottom: none;
+    background-color: rgba(0,0,0,0.03);
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    color: #666;
+}
+
+.table tbody tr {
+    background-color: #fff;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.table tbody td {
+    border-top: none;
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+}
+
+.table tbody tr td:first-child {
+    border-right: 4px solid var(--primary);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.table tbody tr td:last-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 3px 5px rgba(67, 97, 238, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(67, 97, 238, 0.4);
+}
+
+.btn-success {
+    background-color: var(--success);
+    border-color: var(--success);
+    box-shadow: 0 3px 5px rgba(46, 204, 113, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(46, 204, 113, 0.4);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    border-color: var(--danger);
+    box-shadow: 0 3px 5px rgba(231, 76, 60, 0.3);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(231, 76, 60, 0.4);
+}
+
+/* Badge Styling */
+.badge {
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.badge-success {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.badge-warning {
+    background-color: rgba(243, 156, 18, 0.1);
+    color: var(--warning);
+    border: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+.badge-danger {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+/* Form Controls */
+.form-control {
+    height: calc(2.25rem + 2px);
+    padding: 0.5rem 1rem;
+    border: 1px solid #e1e5eb;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.25);
+}
+
+/* Navbar */
+.main-header {
+    border: none;
+    background: #fff;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+}
+
+.navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+}
+
+/* Profile Dropdown */
+.user-panel {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0.5rem;
+}
+
+.user-panel img {
+    border-radius: 10px;
+}
+
+.user-panel .info {
+    padding: 5px 0 5px 5px;
+}
+
+/* Pagination */
+.pagination {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pagination .page-item .page-link {
+    padding: 0.5rem 0.75rem;
+    color: var(--primary);
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* RTL specific overrides */
+.mr-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+.ml-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+.dropdown-menu-right {
+    right: auto !important;
+    left: 0 !important;
+}
+
+.text-right {
+    text-align: left !important;
+}
+
+.text-left {
+    text-align: right !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Dashboard Animation Effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Toast Notifications */
+.toasts-top-right {
+    top: 20px;
+    left: 20px;
+    right: auto;
+}
+
+.toast {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03),
+                0 0.9375rem 1.40625rem rgba(4,9,20,0.03),
+                0 0.25rem 0.53125rem rgba(4,9,20,0.05),
+                0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+}
+
+.toast-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.toast-body {
+    padding: 0.75rem 1.25rem;
+}

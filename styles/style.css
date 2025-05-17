@@ -56,6 +56,7 @@ section:has(h2:contains('Explore Our Products')) .products-grid::-webkit-scrollb
   border-radius: 4px;
 }
 
+
 * {
   box-sizing: border-box; 
   margin: 0; 
@@ -973,6 +974,55 @@ nav a:hover {
   font-size: 0.95rem;
 }
 
+/* Estilos para los botones Add to Cart */
+.add-to-cart-btn {
+  background-color: #DB4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #c03737;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(219, 68, 68, 0.2);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.add-to-cart-btn i {
+  font-size: 14px;
+}
+
+.product-card.best {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.product-card.best:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
 /* Category Section */
 .category-section {
     margin: 38px 0 36px 0;
@@ -1037,41 +1087,42 @@ nav a:hover {
   justify-content: flex-start;
 }
 .category-card {
-  background: #fff;
-  border: 1.5px solid #eee;
-  border-radius: 12px;
-  width: 170px;
-  height: 145px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  font-size: 1.08rem;
-  font-weight: 500;
-  color: #111;
-  cursor: pointer;
-  box-sizing: border-box;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 16px;
+    padding: 25px 10px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 .category-card img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    margin-bottom: 0;
+    max-width: 56px;
+    height: auto;
 }
 .category-card span {
-    font-size: 1.08rem;
-    font-family: 'Inter', Arial, sans-serif;
-    margin-top: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    transition: color 0.3s ease;
 }
-.category-card.active, .category-card:hover {
+.category-card.active {
     background: #DB4444;
-    color: #fff;
     border-color: #DB4444;
 }
-.category-card.active img, .category-card:hover img {
+.category-card.active span {
+    color: #FFFFFF;
+}
+.category-card.active img {
     filter: brightness(0) invert(1);
+}
+.category-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* Footer Main */
@@ -1580,7 +1631,6 @@ nav a:hover {
 }
 
 
-
 /* ميديا كويري شاملة لأجهزة التليفون */
 @media (max-width: 480px) {
   /* سكرول جانبي للمنتجات */
@@ -1603,6 +1653,17 @@ nav a:hover {
     vertical-align: top;
     white-space: normal;
   }
+
+
+
+
+
+
+
+
+
+
+
 
   /* =============================
      1. Reset & Base Styles
@@ -1702,222 +1763,6 @@ nav a:hover {
     font-size: 2rem;
     margin: 12px 0;
   }
-  .hero-banner img {
-    max-width: 80%;
-  }
-
-  /* Flash Sales */
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .product-carousel {
-    gap: 12px;
-    padding-bottom: 8px;
-  }
-  .product-card {
-    width: 100%;
-    min-width: auto;
-    max-width: 90vw;
-  }
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Categories */
-  .category-list {
-    gap: 12px;
-    justify-content: center;
-  }
-  .category-item {
-    padding: 12px 16px;
-    font-size: 0.9rem;
-  }
-
-  /* Hero Banner Slider */
-  .hero-banner-slider {
-    height: auto;
-  }
-  .hero-slide {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .hero-slide-content {
-    padding: 24px;
-    min-width: auto;
-  }
-  .hero-slide-main {
-    font-size: 2rem;
-  }
-  .hero-slide-img {
-    max-width: 80%;
-    height: auto;
-  }
-
-  /* Music Experience Banner */
-  .music-experience-banner {
-    width: 100%;
-    margin: 24px auto;
-  }
-  .music-banner-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 24px;
-    text-align: center;
-  }
-  .music-banner-left {
-    align-items: center;
-    max-width: 100%;
-  }
-  .music-banner-title {
-    font-size: 2rem;
-  }
-  .music-banner-timer-row {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .music-banner-right {
-    justify-content: center;
-  }
-  .music-banner-img {
-    max-width: 80%;
-  }
-
-  /* Explore Our Products Section */
-  section:has(h2:contains('Explore Our Products')) .products-grid {
-    gap: 12px;
-  }
-  section:has(h2:contains('Explore Our Products')) .product-card {
-    min-width: auto;
-    max-width: 90vw;
-  }
-
-
-
-/* ميديا كويري شاملة لأجهزة التليفون */
-@media (max-width: 480px) {
-  /* سكرول جانبي للمنتجات */
-  .products-grid,
-  .product-carousel,
-  .best-selling-carousel {
-    display: block !important;
-    overflow-x: auto !important;
-    white-space: nowrap !important;
-    padding-bottom: 8px !important;
-    gap: 0 !important;
-  }
-  .products-grid .product-card,
-  .product-carousel .product-card,
-  .best-selling-carousel .product-card {
-    display: inline-block !important;
-    min-width: 220px !important;
-    max-width: 80vw !important;
-    margin-right: 8px !important;
-    vertical-align: top;
-    white-space: normal;
-  }
-
-  /* =============================
-     1. Reset & Base Styles
-  ============================= */
-  .container {
-    padding: 0 12px; /* تقليل الحواف */
-  }
-
-  .top-bar .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  /* =============================
-     2. Top Bar
-  ============================= */
-  .top-bar-flex {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-  }
-  .top-bar-message {
-    text-align: center;
-    font-size: 13px;
-  }
-  .top-bar-right {
-    justify-content: flex-end;
-    width: 100%;
-  }
-
-  /* Services Section */
-  .services-container {
-    flex-direction: column;
-    gap: 2px;
-    align-items: center;
-  }
-  .service-box {
-    max-width: 90vw;
-  }
-
-  /* =============================
-     3. Navbar / Header
-  ============================= */
-  .nav-container {
-    flex-direction: column;
-    align-items: stretch;
-    height: auto;
-    padding: 12px 0;
-  }
-  .logo {
-    text-align: center;
-    margin-bottom: 8px;
-  }
-  nav {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
-  nav a {
-    padding: 8px 0;
-    display: block;
-  }
-  .search-cart {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .search-box input {
-    width: 100%;
-  }
-
-  /* =============================
-     4. Main Content Layout
-  ============================= */
-  .main-content {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .sidebar {
-    min-width: 100%;
-    padding: 16px;
-  }
-  .sidebar li {
-    margin-bottom: 8px;
-  }
-
-  /* =============================
-     5. Hero Banner
-  ============================= */
-  .hero-banner {
-    flex-direction: column;
-    align-items: center;
-    padding: 24px;
-    text-align: center;
-    gap: 20px;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-    margin: 12px 0;
-  }
   .apple-logo {
     font-size: 1rem;
   }
@@ -1946,9 +1791,6 @@ nav a:hover {
   }
 
   /* Categories */
-  .categories {
-    margin-top: 24px;
-  }
   .category-list {
     gap: 12px;
     justify-content: center;
@@ -2102,8 +1944,3 @@ nav a:hover {
     }
   }
 }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> b518cc1015a9d72cbb3066bc69a8cd0496751b80

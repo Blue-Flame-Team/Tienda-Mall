@@ -1,0 +1,379 @@
+/* Admin Dashboard Styles for EzMart Look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root {
+  --primary: #ff7a1a;
+  --primary-dark: #db4444;
+  --sidebar-bg: #fff;
+  --sidebar-active: #ff7a1a;
+  --sidebar-inactive: #f6f6f6;
+  --sidebar-text: #222;
+  --sidebar-icon: #ff7a1a;
+  --card-bg: #fff;
+  --card-radius: 18px;
+  --card-shadow: 0 2px 12px 0 rgba(220,68,68,0.08);
+  --border: #eee;
+  --muted: #888;
+  --success: #27ae60;
+  --warning: #ffa45f;
+  --danger: #db4444;
+  --gray-bg: #fafbfc;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--gray-bg);
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 3px 14px;
+  font-size: 0.96em;
+  font-weight: 600;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--primary);
+  vertical-align: middle;
+  letter-spacing: 0.01em;
+  margin-left: 4px;
+}
+.badge.shipped { background: #27ae60; }
+.badge.processing { background: #ff7a1a; }
+.badge.delivered { background: #00b894; }
+.badge.pending { background: #db4444; }
+.badge.activity {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #fff;
+  margin-right: 10px;
+  background: #ff7a1a;
+}
+.badge.activity.c { background: #ff7a1a; }
+.badge.activity.r { background: #27ae60; }
+.badge.activity.s { background: #ffa45f; }
+.badge.activity.o { background: #db4444; }
+
+/* Table Header */
+.admin-table th {
+  background: #fafafa;
+  color: #888;
+  font-weight: 600;
+  font-size: 1.01em;
+  padding: 10px 8px;
+  border-bottom: 2px solid #f0f0f0;
+}
+.admin-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f3f3f3;
+  font-size: 1em;
+  color: #222;
+}
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Card shadow and radius update */
+.admin-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(220,68,68,0.06);
+  padding: 26px 28px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 230px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 24px 0;
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+.admin-sidebar .logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sidebar-text);
+  padding: 32px 0 24px 36px;
+  letter-spacing: 1px;
+}
+.admin-sidebar nav {
+  width: 100%;
+}
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.admin-sidebar li {
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  color: var(--sidebar-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 8px 0 0 8px;
+  margin-bottom: 2px;
+  transition: background 0.18s, color 0.18s;
+}
+.admin-sidebar li.active,
+.admin-sidebar li:hover {
+  background: var(--sidebar-active);
+  color: #fff;
+}
+.admin-sidebar li i {
+  margin-right: 14px;
+  font-size: 1.3em;
+  color: var(--sidebar-icon);
+}
+.admin-sidebar .sidebar-bottom {
+  margin-top: auto;
+  padding: 0 36px;
+}
+
+/* Main content */
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Topbar */
+.admin-topbar {
+  background: #fff;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.admin-topbar .search-box {
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+  border-radius: 8px;
+  padding: 0 14px;
+  height: 40px;
+}
+.admin-topbar .search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  padding: 0 8px;
+  width: 220px;
+}
+.admin-topbar .topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.admin-topbar .icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #888;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.18s, color 0.18s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-topbar .icon-btn:hover {
+  background: #fafafa;
+  color: var(--primary);
+}
+.admin-topbar .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 4px 12px 4px 4px;
+}
+.admin-topbar .user-profile img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+.admin-topbar .user-profile .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.admin-topbar .user-profile .user-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+.admin-topbar .user-profile .user-role {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Dashboard grid */
+.admin-dashboard {
+  padding: 36px 36px 24px 36px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 28px;
+  background: var(--gray-bg);
+}
+
+/* Cards */
+.admin-card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 26px 28px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-metric {
+  grid-column: span 2;
+  min-width: 0;
+  min-height: 120px;
+  justify-content: center;
+}
+.card-metric .metric-title {
+  font-size: 1.1rem;
+  color: #888;
+  font-weight: 500;
+}
+.card-metric .metric-value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #222;
+}
+.card-metric .metric-trend {
+  font-size: 0.97rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.card-metric .metric-trend.up {
+  color: var(--success);
+}
+.card-metric .metric-trend.down {
+  color: var(--danger);
+}
+
+/* Revenue Analytics, Monthly Target, Top Categories, etc. */
+.card-wide {
+  grid-column: span 4;
+  min-width: 0;
+}
+.card-tall {
+  grid-row: span 2;
+  min-height: 360px;
+}
+.card-circle {
+  align-items: center;
+  justify-content: center;
+}
+
+/* Recent Orders, Recent Activity, Traffic Sources */
+.card-list {
+  min-height: 280px;
+  overflow: auto;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .admin-dashboard {
+    grid-template-columns: repeat(6, 1fr);
+    padding: 22px 8px 12px 8px;
+  }
+}
+@media (max-width: 900px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    flex-direction: row;
+    height: 60px;
+    min-height: 60px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0 0 0 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .admin-sidebar .logo {
+    padding: 0 0 0 18px;
+    font-size: 1.4rem;
+  }
+  .admin-sidebar nav {
+    width: auto;
+  }
+  .admin-sidebar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+  }
+  .admin-sidebar li {
+    padding: 8px 12px;
+    font-size: 1em;
+    border-radius: 6px;
+    margin-bottom: 0;
+  }
+  .admin-sidebar .sidebar-bottom {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .admin-dashboard {
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
+    padding: 8px 2vw 8px 2vw;
+  }
+  .card-metric, .card-wide, .card-tall {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+  .admin-card {
+    padding: 14px 8px 12px 8px;
+  }
+}
+
+/* Misc */
+::-webkit-scrollbar {
+  width: 7px;
+  background: #f4f4f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 4px;
+}

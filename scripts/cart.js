@@ -2,6 +2,13 @@
 
 const CART_KEY = 'cartItems';
 
+// Function to get the base URL for the site with correct Tienda path
+function getSiteBaseUrl() {
+  // Force the base URL to always include 'Tienda' regardless of current page
+  // This ensures API paths are correct even if accessed from different locations
+  return window.location.protocol + '//' + window.location.host + '/Tienda/';
+}
+
 function renderCartTable() {
   const cart = getCart();
   const tbody = document.getElementById('cart-table-body');
@@ -75,56 +82,51 @@ function setupCheckoutBtn() {
       // Save cart data to sessionStorage for checkout page
       var cart = getCart();
       sessionStorage.setItem('checkoutCart', JSON.stringify(cart));
-      window.location.href = 'checkout.html';
+      window.location.href = 'checkout.php';
     };
   } else {
     console.warn('No .cart-checkout-btn found on this page.');
   }
 }
 
+// Consolidated DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', function() {
   renderCartTable();
-  updateCartBadge && updateCartBadge();
+  if (typeof updateCartBadge === 'function') {
+    updateCartBadge();
+  } else if (window.cartAPI && window.cartAPI.updateCartCounter) {
+    window.cartAPI.updateCartCounter();
+  }
   setupCheckoutBtn();
+  
   // Remove item logic (by clicking remove icon, if added)
   var cartTableBody = document.getElementById('cart-table-body');
   if (cartTableBody) {
     cartTableBody.addEventListener('click', function(e) {
-    if (e.target.classList.contains('cart-remove-btn')) {
-      const row = e.target.closest('tr');
-      const id = row.querySelector('.cart-qty-select').getAttribute('data-id');
-      removeCartItem(id);
-      renderCartTable();
-      updateCartBadge && updateCartBadge();
-    }
-  });
+      if (e.target.classList.contains('cart-remove-btn')) {
+        const row = e.target.closest('tr');
+        const id = row.querySelector('.cart-qty-select').getAttribute('data-id');
+        removeCartItem(id);
+        renderCartTable();
+        
+        // Update cart badge using available method
+        if (typeof updateCartBadge === 'function') {
+          updateCartBadge();
+        } else if (window.cartAPI && window.cartAPI.updateCartCounter) {
+          window.cartAPI.updateCartCounter();
+        }
+      }
+    });
   }
 });
 
 // If cart changes dynamically, re-setup checkout btn
 window.addEventListener('storage', setupCheckoutBtn);
 
+// Cleanup any undefined function
 if (typeof renderCartPage !== 'undefined') {
   window.renderCartPage = undefined;
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  renderCartTable();
-  updateCartBadge && updateCartBadge();
-  // Remove item logic (by clicking remove icon, if added)
-  var cartTableBody = document.getElementById('cart-table-body');
-  if (cartTableBody) {
-    cartTableBody.addEventListener('click', function(e) {
-    if (e.target.classList.contains('cart-remove-btn')) {
-      const row = e.target.closest('tr');
-      const id = row.querySelector('.cart-qty-select').getAttribute('data-id');
-      removeCartItem(id);
-      renderCartTable();
-      updateCartBadge && updateCartBadge();
-    }
-    });
-  }
-});
 
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY) || '[]');
@@ -135,6 +137,7 @@ function saveCart(cart) {
 }
 
 function addToCart(product, quantity = 1) {
+  // Actualizar el carrito local primero para una experiencia de usuario inmediata
   let cart = getCart();
   const idx = cart.findIndex(item => item.id === product.id);
   if (idx > -1) {
@@ -143,6 +146,47 @@ function addToCart(product, quantity = 1) {
     cart.push({ ...product, quantity });
   }
   saveCart(cart);
+  
+  // Actualizar el contador del carrito en el DOM
+  updateCartCounter();
+  
+  // Sincronizar con el backend
+  const productId = product.id || product.product_id;
+  if (productId) {
+    // Use absolute URL to prevent path resolution issues
+    const apiUrl = window.location.origin + '/Tienda/api/add_to_cart.php';
+    console.log('Adding to cart at:', apiUrl);
+    
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        product_id: productId,
+        quantity: quantity,
+        options: product.options || {}
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        console.log('Cart updated successfully:', data.message);
+        // Update cart count from the server
+        if (data.cart_count) {
+          const cartCountEl = document.querySelector('.cart-count');
+          if (cartCountEl) {
+            cartCountEl.textContent = data.cart_count;
+          }
+        }
+      } else {
+        console.error('Error al sincronizar carrito:', data.message);
+      }
+    })
+    .catch(error => {
+      console.error('Error al sincronizar carrito:', error);
+    });
+  }
 }
 
 function updateCartItem(productId, newQuantity) {
@@ -165,6 +209,101 @@ function getCartCount() {
   return getCart().reduce((sum, item) => sum + item.quantity, 0);
 }
 
+/**
+ * Actualiza el contador del carrito en la interfaz
+ */
+function updateCartCounter() {
+  // Obtener el contador del carrito
+  const count = getCartCount();
+  
+  // Actualizar todos los elementos con la clase 'cart-count'
+  const cartCounters = document.querySelectorAll('.cart-count');
+  cartCounters.forEach(counter => {
+    counter.textContent = count;
+    // Si el contador es cero, ocultar el elemento, de lo contrario mostrarlo
+    if (count === 0) {
+      counter.style.display = 'none';
+    } else {
+      counter.style.display = 'inline-block';
+    }
+  });
+  
+  // Si hay un icono de carrito en el header, mostrar un indicador visual
+  const cartIcons = document.querySelectorAll('.cart-icon');
+  cartIcons.forEach(icon => {
+    if (count > 0) {
+      icon.classList.add('has-items');
+    } else {
+      icon.classList.remove('has-items');
+    }
+  });
+}
+
+/**
+ * Sincroniza el carrito desde el servidor
+ */
+function syncCartFromServer() {
+  // Use absolute URL to prevent path resolution issues
+  const apiUrl = window.location.origin + '/Tienda/api/get_cart.php';
+  console.log('Fetching cart from:', apiUrl);
+  
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data.success && data.cart && data.cart.items) {
+        // Convertir los items del carrito del servidor al formato local
+        const serverCart = data.cart.items.map(item => ({
+          id: parseInt(item.product_id),
+          name: item.name || 'Producto',
+          price: parseFloat(item.price) || 0,
+          image: item.image || '',
+          quantity: parseInt(item.quantity) || 1
+        }));
+        
+        // Combinar con el carrito local
+        let localCart = getCart();
+        
+        // Si el carrito del servidor no está vacío, usarlo
+        if (serverCart.length > 0) {
+          // Fusionar carritos para no perder items
+          const mergedCart = [...localCart];
+          
+          // Añadir o actualizar items del servidor
+          serverCart.forEach(serverItem => {
+            const existingItemIndex = mergedCart.findIndex(item => item.id === serverItem.id);
+            if (existingItemIndex >= 0) {
+              // Actualizar cantidad si ya existe
+              mergedCart[existingItemIndex].quantity = Math.max(
+                mergedCart[existingItemIndex].quantity,
+                serverItem.quantity
+              );
+            } else {
+              // Añadir nuevo item
+              mergedCart.push(serverItem);
+            }
+          });
+          
+          // Guardar carrito fusionado
+          saveCart(mergedCart);
+        }
+        
+        // Actualizar contador
+        updateCartCounter();
+      }
+    })
+    .catch(error => {
+      console.error('Error al sincronizar carrito desde el servidor:', error);
+    });
+}
+
+// Cuando se carga la página
+document.addEventListener('DOMContentLoaded', () => {
+  // Sincronizar carrito desde el servidor
+  syncCartFromServer();
+  // Actualizar contador del carrito
+  updateCartCounter();
+});
+
 // Expose globally for use in inline event handlers if needed
 window.cartAPI = {
   getCart,
@@ -173,5 +312,7 @@ window.cartAPI = {
   updateCartItem,
   removeCartItem,
   clearCart,
-  getCartCount
+  getCartCount,
+  updateCartCounter,
+  syncCartFromServer
 };

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | EzMart</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="logo">Tieanda</div>
+    <nav>
+      <ul>
+        <li class="active"><i class="fa-solid fa-table-columns"></i>Dashboard</li>
+        <li><i class="fa-solid fa-cart-shopping"></i>Orders</li>
+        <li><i class="fa-solid fa-box"></i>Products</li>
+        <li><i class="fa-solid fa-users"></i>Customers</li>
+        <li><i class="fa-solid fa-chart-bar"></i>Reports</li>
+        <li><i class="fa-solid fa-tags"></i>Discounts</li>
+      </ul>
+      <ul class="sidebar-bottom">
+        <li><i class="fa-solid fa-plug"></i>Integrations</li>
+        <li><i class="fa-solid fa-circle-question"></i>Help</li>
+        <li><i class="fa-solid fa-gear"></i>Settings</li>
+      </ul>
+    </nav>
+  </aside>
+  <!-- Main Content -->
+  <main class="admin-main">
+    <!-- Topbar -->
+    <header class="admin-topbar">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search stock, order, etc">
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+        <button class="icon-btn"><i class="fa-regular fa-message"></i></button>
+        <div class="user-profile">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin">
+          <div class="user-info">
+            <span class="user-name">7amodi</span>
+            <span class="user-role">Admin</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Dashboard -->
+    <section class="admin-dashboard">
+      <!-- Metrics -->
+      <div class="admin-card card-metric">
+        <div class="metric-title">Total Sales</div>
+        <div class="metric-value">$983,410</div>
+        <div class="metric-trend up"><i class="fa-solid fa-arrow-up"></i> +3.54% vs last week</div>
+      </div>
+      <div class="admin-card card-metric">
+        <div class="metric-title">Total Orders</div>
+        <div class="metric-value">58,375</div>
+        <div class="metric-trend down"><i class="fa-solid fa-arrow-down"></i> -2.89% vs last week</div>
+      </div>
+      <div class="admin-card card-metric">
+        <div class="metric-title">Total Visitors</div>
+        <div class="metric-value">237,782</div>
+        <div class="metric-trend up"><i class="fa-solid fa-arrow-up"></i> +8.02% vs last week</div>
+      </div>
+      <!-- Revenue Analytics -->
+      <div class="admin-card card-wide">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-weight:600;font-size:1.08rem;">Revenue Analytics</span>
+          <span style="background:#fafafa;padding:4px 12px;border-radius:7px;font-size:0.97rem;">Last 8 Days</span>
+        </div>
+        <img src="https://i.imgur.com/6kP4WnG.png" alt="Revenue Chart" style="width:100%;max-width:350px;margin:18px auto 0 auto;display:block;">
+      </div>
+      <!-- Monthly Target -->
+      <div class="admin-card card-wide card-circle">
+        <span style="font-weight:600;font-size:1.08rem;">Monthly Target</span>
+        <div style="width:100px;height:100px;position:relative;margin:18px 0;">
+          <svg width="100" height="100">
+            <circle cx="50" cy="50" r="45" stroke="#ffe0c2" stroke-width="12" fill="none" />
+            <circle cx="50" cy="50" r="45" stroke="#ff7a1a" stroke-width="12" fill="none" stroke-dasharray="282.74" stroke-dashoffset="42" stroke-linecap="round"/>
+          </svg>
+          <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1.5rem;font-weight:700;">85%</span>
+        </div>
+        <span style="color:#27ae60;font-weight:600;">Great Progress! <i class="fa-solid fa-bolt"></i></span>
+        <span style="font-size:0.97rem;color:#888;">Our achievement increased by <b>$200,000</b>, let's reach 100% next month.</span>
+        <div style="display:flex;gap:18px;margin-top:8px;">
+          <span style="color:#888;font-size:0.95rem;">Target<br><b>$600,000</b></span>
+          <span style="color:#888;font-size:0.95rem;">Revenue<br><b>$510,000</b></span>
+        </div>
+      </div>
+      <!-- Top Categories -->
+      <div class="admin-card card-wide card-circle">
+        <span style="font-weight:600;font-size:1.08rem;">Top Categories</span>
+        <div style="width:120px;height:120px;position:relative;margin:18px 0;">
+          <svg width="120" height="120">
+            <circle cx="60" cy="60" r="54" stroke="#ffe0c2" stroke-width="14" fill="none" />
+            <circle cx="60" cy="60" r="54" stroke="#ff7a1a" stroke-width="14" fill="none" stroke-dasharray="339.29" stroke-dashoffset="84" stroke-linecap="round"/>
+          </svg>
+          <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1.1rem;font-weight:700;">$3,400,000</span>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;width:100%;max-width:180px;">
+          <li style="display:flex;justify-content:space-between;"><span style="color:#ff7a1a;">Electronics</span><span>$1,200,000</span></li>
+          <li style="display:flex;justify-content:space-between;"><span>Fashion</span><span>$950,000</span></li>
+          <li style="display:flex;justify-content:space-between;"><span>Home & Kitchen</span><span>$750,000</span></li>
+          <li style="display:flex;justify-content:space-between;"><span>Beauty</span><span>$500,000</span></li>
+        </ul>
+      </div>
+      <!-- Active Users -->
+      <div class="admin-card card-wide">
+        <span style="font-weight:600;font-size:1.08rem;">Active User</span>
+        <div style="font-size:2rem;font-weight:700;">2,758 <span style="color:#27ae60;font-size:1.1rem;vertical-align:top;">+8.02%</span></div>
+        <div style="margin:8px 0 0 0;">
+          <div style="display:flex;justify-content:space-between;"><span>United States</span><span>36%</span></div>
+          <div style="background:#ffe0c2;height:6px;border-radius:3px;margin:2px 0 8px 0;"><div style="background:#ff7a1a;width:36%;height:100%;border-radius:3px;"></div></div>
+          <div style="display:flex;justify-content:space-between;"><span>United Kingdom</span><span>24%</span></div>
+          <div style="background:#ffe0c2;height:6px;border-radius:3px;margin:2px 0 8px 0;"><div style="background:#ffb26b;width:24%;height:100%;border-radius:3px;"></div></div>
+          <div style="display:flex;justify-content:space-between;"><span>Indonesia</span><span>17.5%</span></div>
+          <div style="background:#ffe0c2;height:6px;border-radius:3px;margin:2px 0 8px 0;"><div style="background:#ffd3a6;width:17.5%;height:100%;border-radius:3px;"></div></div>
+          <div style="display:flex;justify-content:space-between;"><span>Russia</span><span>15%</span></div>
+          <div style="background:#ffe0c2;height:6px;border-radius:3px;"><div style="background:#ffe6c7;width:15%;height:100%;border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <!-- Conversion Rate -->
+      <div class="admin-card card-wide">
+        <span style="font-weight:600;font-size:1.08rem;">Conversion Rate <span style="font-size:0.95rem;color:#888;">This Week</span></span>
+        <div style="display:flex;gap:22px;margin-top:8px;">
+          <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:700;">25,000</div><div style="font-size:0.93rem;color:#888;">Product Views</div></div>
+          <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:700;">12,000</div><div style="font-size:0.93rem;color:#888;">Add to Cart</div></div>
+          <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:700;">8,500</div><div style="font-size:0.93rem;color:#888;">Proceed to Checkout</div></div>
+          <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:700;">6,200</div><div style="font-size:0.93rem;color:#888;">Completed Purchases</div></div>
+          <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:700;">3,000</div><div style="font-size:0.93rem;color:#888;">Abandoned Carts</div></div>
+        </div>
+      </div>
+      <!-- Traffic Sources -->
+      <div class="admin-card card-wide">
+        <span style="font-weight:600;font-size:1.08rem;">Traffic Sources</span>
+        <div style="margin:12px 0 0 0;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span style="background:#ff7a1a;width:36px;height:16px;display:inline-block;border-radius:4px;"></span>
+            <span style="color:#888;">Direct Traffic</span>
+            <span style="margin-left:auto;font-weight:700;">40%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span style="background:#ffb26b;width:36px;height:16px;display:inline-block;border-radius:4px;"></span>
+            <span style="color:#888;">Organic Search</span>
+            <span style="margin-left:auto;font-weight:700;">30%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span style="background:#ffd3a6;width:36px;height:16px;display:inline-block;border-radius:4px;"></span>
+            <span style="color:#888;">Social Media</span>
+            <span style="margin-left:auto;font-weight:700;">15%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span style="background:#ffe6c7;width:36px;height:16px;display:inline-block;border-radius:4px;"></span>
+            <span style="color:#888;">Referral Traffic</span>
+            <span style="margin-left:auto;font-weight:700;">10%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="background:#fafafa;width:36px;height:16px;display:inline-block;border-radius:4px;"></span>
+            <span style="color:#888;">Email Campaigns</span>
+            <span style="margin-left:auto;font-weight:700;">5%</span>
+          </div>
+        </div>
+      </div>
+      <!-- Recent Orders -->
+      <div class="admin-card card-wide card-list" style="grid-column:span 8;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-weight:600;font-size:1.08rem;">Recent Orders</span>
+          <select style="padding:4px 12px;border-radius:7px;font-size:0.97rem;border:1px solid #eee;">
+            <option>All Categories</option>
+          </select>
+        </div>
+        <table class="admin-table" style="width:100%;margin-top:10px;font-size:0.98rem;">
+  <thead>
+    <tr>
+      <th>No</th><th>Order ID</th><th>Customer</th><th>Product</th><th>Qty</th><th>Total</th><th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>#10234</td><td>Amaya Weller</td><td>Wireless Headphones</td><td>2</td><td>$100</td><td><span class="badge shipped">Shipped</span></td></tr>
+    <tr><td>2</td><td>#10235</td><td>Sebastian Adams</td><td>Running Shoes</td><td>1</td><td>$75</td><td><span class="badge processing">Processing</span></td></tr>
+    <tr><td>3</td><td>#10236</td><td>Suzanne Bright</td><td>Smartwatch</td><td>1</td><td>$150</td><td><span class="badge delivered">Delivered</span></td></tr>
+    <tr><td>4</td><td>#10237</td><td>Peter Howl</td><td>Coffee Maker</td><td>1</td><td>$60</td><td><span class="badge pending">Pending</span></td></tr>
+    <tr><td>5</td><td>#10238</td><td>Anita Singh</td><td>Bluetooth Speaker</td><td>3</td><td>$90</td><td><span class="badge shipped">Shipped</span></td></tr>
+  </tbody>
+</table>
+      </div>
+      <!-- Recent Activity -->
+      <div class="admin-card card-wide card-list" style="grid-column:span 4;">
+        <span style="font-weight:600;font-size:1.08rem;">Recent Activity</span>
+        <ul style="list-style:none;padding:0;margin:12px 0 0 0;">
+  <li style="margin-bottom:12px;"><span class="badge activity c">C</span> Maureen Steel purchased 2 items totaling $120. <span style="color:#888;font-size:0.92rem;">10:30 AM</span></li>
+  <li style="margin-bottom:12px;"><span class="badge activity c">C</span> The price of "Smart TV" was updated from $500 to $450. <span style="color:#888;font-size:0.92rem;">9:45 AM</span></li>
+  <li style="margin-bottom:12px;"><span class="badge activity r">R</span> Vincent Laurent left a 5-star review for "Wireless Headphones". <span style="color:#888;font-size:0.92rem;">8:20 AM</span></li>
+  <li style="margin-bottom:12px;"><span class="badge activity s">S</span> "Running Shoes" stock is below 10 units. <span style="color:#888;font-size:0.92rem;">7:50 AM</span></li>
+  <li><span class="badge activity o">O</span> Damian Ugo's order status changed from "Pending" to "Processing". <span style="color:#888;font-size:0.92rem;">7:00 AM</span></li>
+</ul>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

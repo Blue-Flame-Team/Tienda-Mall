@@ -6,7 +6,9 @@
     <title>About Us</title>
     <link rel="stylesheet" href="../styles/about.css" />
     <link rel="stylesheet" href="../styles/style.css" />
-
+    <link rel="stylesheet" href="../styles/mobile-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../scripts/mobile-nav.js" defer></script>
   </head>
   <body>
 
@@ -24,6 +26,7 @@
   <header>
       <div class="container nav-container">
           <div class="logo">Tienda</div>
+          <button class="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
           <nav>
               <a href="../index.html">Home</a>
               <a href="contact.html">Contact</a>
@@ -52,6 +55,30 @@
           </div>
       </div>
   </header>
+
+  <!-- Mobile Nav Overlay & Dropdown -->
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-dropdown">
+    <button class="close-mobile-nav" aria-label="Close Menu"><i class="fa fa-times"></i></button>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./about.html">About</a>
+      <a href="./account.html">Account</a>
+      <a href="./signup.php">Sign Up</a>
+    </nav>
+    <div class="search-cart">
+      <div class="search-box">
+        <input type="text" placeholder="What are you looking for?">
+        <span class="search-icon"><img src="../assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+      </div>
+      <a href="./wishlist.html" class="icon-link"><img src="../assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+      <a href="./cart.html" class="icon-link" style="position:relative;">
+        <img src="../assets/icons/Cart1.png" alt="Cart" class="icon-img">
+        <span class="nav-cart-after" style="position:absolute;top:-8px;right:-8px;background:#DB4444;color:#fff;font-size:0.9em;padding:2px 7px;border-radius:50%;display:none;z-index:2;">0</span>
+      </a>
+    </div>
+  </div>
 
     <div class="about">
       <div class="roadmap">

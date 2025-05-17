@@ -1,0 +1,12 @@
+[2025-05-17 18:48:03] [Query Error] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1
+SQL Query: SHOW TABLES LIKE ?
+Parameters: Array
+(
+    [0] => products
+)
+
+Trace: 
+  #0 C:\wamp64\www\Tienda\includes\Database.php(81): Database->logError()
+  #1 C:\wamp64\www\Tienda\pages\ProductDetails.php(41): Database->query()
+  #2 C:\wamp64\www\Tienda\pages\ProductDetails.php(71): detectCorrectTable()
+

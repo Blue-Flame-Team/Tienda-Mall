@@ -2,6 +2,8 @@
 // It extracts product name (from h4 or .product-title), finds the product in the products array (from main.js),
 // and navigates to the details page with the product name as a URL parameter
 
+
+
 // Helper: slugify product name for URL
 function slugify(text) {
   return text.toString().toLowerCase().replace(/\s+/g, '-')
@@ -23,7 +25,7 @@ function attachProductCardLinks() {
       // Prevent click if it's on a button or icon inside the card
       if (e.target.closest('button') || e.target.tagName === 'BUTTON' || e.target.tagName === 'I') return;
       // Go to details page with slug as param
-      window.location.href = `pages/ProductDetails.html?name=${encodeURIComponent(slugify(productName))}`;
+      window.location.href = `pages/ProductDetails.php?name=${encodeURIComponent(slugify(productName))}`;
     });
   });
 }

@@ -1,0 +1,280 @@
+/* ============================
+   Base Styles
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ============================
+   Breadcrumb Navigation
+============================ */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 135px;
+  width: 100%;
+}
+
+.breadcrumb-link {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.breadcrumb-divider {
+  width: 13px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.breadcrumb-current {
+  font-size: 14px;
+  color: #000;
+}
+
+/* ============================
+   Welcome Section
+============================ */
+.welcome-section {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0 135px;
+}
+
+.welcome-message {
+  font-size: 14px;
+}
+
+.user-name {
+  color: #db4444;
+}
+
+/* ============================
+   Account Content Layout
+============================ */
+.account-content {
+  display: flex;
+  gap: 40px;
+  padding: 40px 135px;
+  width: 100%;
+}
+
+/* ============================
+   Sidebar
+============================ */
+.account-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 250px;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-heading {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 35px;
+}
+
+.sidebar-link {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.sidebar-link.active {
+  color: #db4444;
+  opacity: 1;
+}
+
+/* ============================
+   Profile Edit Section
+============================ */
+.profile-edit {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+}
+
+.profile-heading {
+  font-size: 20px;
+  color: #db4444;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 50px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-label {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  height: 50px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  border: none;
+  padding: 0 16px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================
+   Password Section
+============================ */
+.password-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.password-heading {
+  font-size: 16px;
+}
+
+/* ============================
+   Form Actions
+============================ */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.cancel-button {
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #db4444;
+  color: #fafafa;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 16px 48px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ============================
+   Media Queries
+============================ */
+
+/* Tablets (768px and up to 1024px) */
+@media (max-width: 1024px) {
+  .account-content {
+    flex-direction: column;
+    padding: 32px;
+  }
+
+  .welcome-section {
+    justify-content: center;
+    padding: 0 32px;
+  }
+
+  .breadcrumb {
+    padding: 20px 32px;
+  }
+
+  .account-sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .sidebar-section {
+    width: 45%;
+  }
+}
+
+/* Phones (less than 768px) */
+@media (max-width: 767px) {
+  .account-content {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .welcome-section,
+  .breadcrumb {
+    padding: 0 24px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sidebar-section {
+    width: 100%;
+  }
+
+  .profile-edit {
+    padding: 24px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .save-button {
+    width: 100%;
+  }
+}

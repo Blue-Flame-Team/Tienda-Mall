@@ -6,15 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda - Modern Ecommerce</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/mobile-nav.css">
+    <link rel="stylesheet" href="/frontend/styles/style.css">
+    <link rel="stylesheet" href="/frontend/styles/mobile-nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles/loader.css">
-    <script src="scripts/cart.js"></script>
-    <script src="scripts/loader.js" defer></script>
-    <script src="scripts/main.js" defer></script>
-    <script src="scripts/mobile-nav.js" defer></script>
+    <link rel="stylesheet" href="/frontend/styles/loader.css">
+    <script src="/frontend/scripts/cart.js"></script>
+    <script src="/frontend/scripts/loader.js" defer></script>
+    <script src="/frontend/scripts/main.js" defer></script>
+    <script src="/frontend/scripts/mobile-nav.js" defer></script>
     
 </head>
 <body>
@@ -575,7 +575,26 @@
             <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
         </div>
     </footer>
+
+
+ <!-- Load API client first -->
+ <script src="/frontend/scripts/api.js"></script>
+
+ <!-- Then load page-specific scripts -->
+ <script src="/frontend/scripts/common.js"></script>
+ <script src="/frontend/scripts/home.js"></script>
+
+
   <script>
+    
+   
+
+
+
+
+
+
+
 // Update cart badge on page load
 function updateCartBadge() {
   if (window.cartAPI) {
@@ -623,9 +642,21 @@ if (logoutBtn) {
   });
 }
 </script>
+<script>
+// Category card selection functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const categoryCards = document.querySelectorAll('.category-card');
+  
+  categoryCards.forEach(card => {
+    card.addEventListener('click', function() {
+      // Remove active class from all cards
+      categoryCards.forEach(c => c.classList.remove('active'));
+      
+      // Add active class to the clicked card
+      this.classList.add('active');
+    });
+  });
+});
+</script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> b518cc1015a9d72cbb3066bc69a8cd0496751b80

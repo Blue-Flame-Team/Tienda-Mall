@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Allow direct access to files in the frontend directory
+RewriteCond %{REQUEST_URI} ^/frontend/.*\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|pdf)$ [NC]
+RewriteRule ^ - [L]
+
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.php
+RewriteRule ^ index.php [L]

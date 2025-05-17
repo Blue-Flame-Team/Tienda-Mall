@@ -142,7 +142,7 @@ function setupJustForYouActions() {
   const seeAllBtn = document.querySelector('.see-all-btn');
   if (seeAllBtn) {
     seeAllBtn.onclick = function() {
-      window.location.href = '../products.html';
+      window.location.href = '../products.php';
     };
   }
 }

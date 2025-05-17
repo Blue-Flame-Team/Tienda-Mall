@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Mall - Online Shopping</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Add any additional CSS -->
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Tienda Mall</h1>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/products.html">Products</a></li>
+                        <li><a href="pages/categories.html">Categories</a></li>
+                        <li><a href="pages/cart.html">Cart <span id="cart-count" class="cart-count">0</span></a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <div id="guest-actions">
+                        <a href="pages/login.html" class="btn btn-primary">Login</a>
+                        <a href="pages/register.html" class="btn btn-secondary">Register</a>
+                    </div>
+                    <div id="user-actions" style="display: none;">
+                        <span id="user-welcome">Welcome!</span>
+                        <a href="pages/dashboard.html" class="btn btn-primary">My Account</a>
+                        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner Section -->
+        <section class="hero-banner">
+            <div class="container">
+                <h2>Welcome to Tienda Mall</h2>
+                <p>Your one-stop destination for all your shopping needs</p>
+                <a href="pages/products.html" class="btn btn-large">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <div id="featured-products" class="products-grid">
+                    <div class="loading">Loading products...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="new-arrivals">
+            <div class="container">
+                <h2 class="section-title">New Arrivals</h2>
+                <div id="new-products" class="products-grid">
+                    <div class="loading">Loading products...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flash Sales Section -->
+        <section class="flash-sales">
+            <div class="container">
+                <h2 class="section-title">Flash Sales</h2>
+                <div id="sale-products" class="products-grid">
+                    <div class="loading">Loading products...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Tienda Mall</h2>
+                    <p>Your trusted online marketplace</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="pages/products.html">Products</a></li>
+                            <li><a href="pages/about.html">About Us</a></li>
+                            <li><a href="pages/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3>Categories</h3>
+                        <ul id="footer-categories">
+                            <li><a href="pages/categories.html">All Categories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3>Customer Service</h3>
+                        <ul>
+                            <li><a href="pages/faq.html">FAQ</a></li>
+                            <li><a href="pages/shipping.html">Shipping Policy</a></li>
+                            <li><a href="pages/returns.html">Returns & Refunds</a></li>
+                            <li><a href="pages/privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tienda Mall. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load API client first -->
+    <script src="scripts/api.js"></script>
+
+    <!-- Then load page-specific scripts -->
+    <script src="scripts/common.js"></script>
+    <script src="scripts/home.js"></script>
+</body>
+</html>

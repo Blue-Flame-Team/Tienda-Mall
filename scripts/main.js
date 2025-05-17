@@ -1,7 +1,7 @@
 // Example product data; replace or extend as needed
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Enable add-to-cart for Explore section
+  // Enable add-to-cart for Explore section (productos antiguos)
   document.querySelectorAll('.products-grid .add-to-cart-btn').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -22,17 +22,123 @@ document.addEventListener('DOMContentLoaded', function() {
           image: prod.image || prod._imgSrc || '',
         }, 1);
         // Update cart badge
-        var badge = document.querySelector('.nav-cart-after');
-        if (badge && window.cartAPI.getCartCount) {
-          var count = window.cartAPI.getCartCount();
-          badge.textContent = count;
-          badge.style.display = count > 0 ? 'inline-block' : 'none';
+        if (window.cartAPI.updateCartCounter) {
+          window.cartAPI.updateCartCounter();
         }
         alert('تم إضافة المنتج إلى العربة!');
       }
     });
   });
+  
+  // Enable add-to-cart for productos desde el panel de administracion (con atributos data-*)
+  document.querySelectorAll('.add-to-cart-btn[data-product-id]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      
+      // Obtener datos del producto desde los atributos data-*
+      const productId = btn.getAttribute('data-product-id');
+      let productName = btn.getAttribute('data-product-name');
+      let productPrice = btn.getAttribute('data-product-price');
+      let productImage = btn.getAttribute('data-product-image');
+      
+      // Si no hay datos completos en los atributos, intentar obtenerlos del DOM
+      if (!productName || !productPrice || !productImage) {
+        // Intentar obtener del DOM basado en la estructura de la tarjeta de producto
+        const card = btn.closest('.product-card');
+        if (card) {
+          // Obtener nombre del producto
+          const titleEl = card.querySelector('.product-title');
+          if (titleEl && !productName) {
+            productName = titleEl.textContent.trim();
+          }
+          
+          // Obtener precio del producto
+          const priceEl = card.querySelector('.price');
+          if (priceEl && !productPrice) {
+            // Eliminar el símbolo $ y convertir a número
+            productPrice = priceEl.textContent.replace('$', '').trim();
+          }
+          
+          // Obtener imagen del producto
+          const imgEl = card.querySelector('img');
+          if (imgEl && !productImage) {
+            productImage = imgEl.getAttribute('src');
+          }
+        }
+      }
+      
+      if (productId && window.cartAPI && window.cartAPI.addToCart) {
+        window.cartAPI.addToCart({
+          id: parseInt(productId),
+          name: productName || 'Producto',
+          price: parseFloat(productPrice) || 0,
+          image: productImage || ''
+        }, 1);
+        
+        // Actualizar contador del carrito
+        if (window.cartAPI.updateCartCounter) {
+          window.cartAPI.updateCartCounter();
+        }
+        
+        // Mostrar mensaje de confirmación
+        showNotification('تم إضافة المنتج إلى العربة!', 'success');
+      }
+    });
+  });
 });
+
+/**
+ * Muestra una notificación temporal en la pantalla
+ * @param {string} message - El mensaje a mostrar
+ * @param {string} type - El tipo de notificación ('success', 'error', 'info', 'warning')
+ */
+function showNotification(message, type = 'info') {
+  // Crear el elemento de notificación si no existe
+  let notification = document.getElementById('cart-notification');
+  if (!notification) {
+    notification = document.createElement('div');
+    notification.id = 'cart-notification';
+    notification.style.position = 'fixed';
+    notification.style.top = '20px';
+    notification.style.right = '20px';
+    notification.style.padding = '15px 25px';
+    notification.style.borderRadius = '5px';
+    notification.style.color = '#fff';
+    notification.style.fontWeight = 'bold';
+    notification.style.zIndex = '9999';
+    notification.style.transition = 'all 0.3s ease-in-out';
+    notification.style.transform = 'translateY(-20px)';
+    notification.style.opacity = '0';
+    notification.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+    document.body.appendChild(notification);
+  }
+  
+  // Establecer colores según el tipo
+  if (type === 'success') {
+    notification.style.backgroundColor = '#4CAF50';
+  } else if (type === 'error') {
+    notification.style.backgroundColor = '#F44336';
+  } else if (type === 'warning') {
+    notification.style.backgroundColor = '#FF9800';
+  } else {
+    notification.style.backgroundColor = '#2196F3';
+  }
+  
+  // Establecer el mensaje
+  notification.textContent = message;
+  
+  // Mostrar la notificación
+  setTimeout(() => {
+    notification.style.transform = 'translateY(0)';
+    notification.style.opacity = '1';
+  }, 10);
+  
+  // Ocultar la notificación después de 3 segundos
+  setTimeout(() => {
+    notification.style.transform = 'translateY(-20px)';
+    notification.style.opacity = '0';
+  }, 3000);
+}
 
 // Scroll-to-top button show/hide logic
 window.addEventListener('scroll', function() {
@@ -270,7 +376,7 @@ function renderProducts(section) {
       if (e.target.closest('.add-to-cart-btn')) return;
       const id = card.getAttribute('data-id');
       if (id) {
-        window.location.href = `pages/ProductDetails.html?id=${id}`;
+        window.location.href = `pages/ProductDetails.php?id=${id}`;
       }
     });
   });
@@ -283,7 +389,7 @@ function renderProducts(section) {
           id: prod.id,
           name: prod.name || prod.title,
           price: prod.price,
-          image: prod._imgSrc || prod.images?.[0] || '',
+          image: prod.image || prod._imgSrc || prod.images?.[0] || '',
         }, 1);
         // Update cart badge
         const badge = document.querySelector('.nav-cart-after');
