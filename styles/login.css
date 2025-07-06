@@ -1,0 +1,142 @@
+/* ===== Login Page Main Layout ===== */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    color: #111;
+}
+
+
+/* ===== Login Section Layout ===== */
+.login-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 781px;
+    width: auto;
+    margin: auto;
+    padding: 0;
+    gap: 0;
+    background: #fff;
+    position: relative;
+}
+
+
+
+
+.login-image {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 340px;
+    min-height: 420px;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+
+.login-image img {
+    width: 805px;
+    height: 781px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: flex;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    filter: none;
+}
+
+
+
+.login-form-section {
+    padding: 56px 60px 56px 60px;
+    border-radius: 14px;
+    box-shadow: none;
+    height: 781px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+
+.login-form-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.login-form-section p {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 24px;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    padding: 12px 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s;
+    width: 370px;
+    height: 32px;
+}
+.login-form input:focus {
+    border-bottom: 1.5px solid #db4444;
+}
+.login-form .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.login-form .btn-login {
+    background: #db4444;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 9px 32px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.login-form .btn-login:hover {
+    background: #b83030;
+}
+.login-form .forgot-link {
+    color: #db4444;
+    font-size: 13px;
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+.login-form .forgot-link:hover {
+    text-decoration: underline;
+}
+
+

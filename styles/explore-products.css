@@ -1,0 +1,55 @@
+/* Horizontal card layout for Explore Our Products section */
+/* Horizontal scroll for Explore Our Products section on home page */
+section:has(h2:contains('Explore Our Products')) .products-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #DB4444 #eee;
+}
+
+@media (max-width: 1024px) {
+  section:has(h2:contains('Explore Our Products')) .products-grid {
+    gap: 18px;
+  }
+}
+@media (max-width: 600px) {
+  section:has(h2:contains('Explore Our Products')) .products-grid {
+    gap: 14px;
+    padding-bottom: 4px;
+  }
+}
+
+
+section:has(h2:contains('Explore Our Products')) .product-card {
+  min-width: 260px;
+  max-width: 280px;
+  flex: 0 0 260px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #eee;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+section:has(h2:contains('Explore Our Products')) .products-grid::-webkit-scrollbar {
+  height: 8px;
+  background: #eee;
+}
+section:has(h2:contains('Explore Our Products')) .products-grid::-webkit-scrollbar-thumb {
+  background: #DB4444;
+  border-radius: 4px;
+}
+section:has(h2:contains('Explore Our Products')) .products-grid::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 4px;
+}

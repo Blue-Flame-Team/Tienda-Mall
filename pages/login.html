@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Tienda</title>
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-flex">
+            <span class="top-bar-message">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#">ShopNow</a></span>
+            <div class="top-bar-right">
+                <span>English</span>
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Tienda</div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">About</a>
+                <a href="#">Sign Up</a>
+            </nav>
+            <div class="search-cart">
+                <div class="search-box">
+                    <input type="text" placeholder="What are you looking for?">
+                    <span class="search-icon"><img src="../assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+                </div>
+                <a href="wishlist.html" class="icon-link"><img src="../assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+                <a href="cart.html" class="icon-link"><img src="../assets/icons/Cart1.png" alt="Cart" class="icon-img"></a>
+            </div>
+        </div>
+    </header>
+    <!-- Main Login Content -->
+    <main>
+  <div class="login-container">
+    <div class="login-image">
+      <img src="../assets/images/Side Image.png" alt="Login Visual">
+    </div>
+    <div class="login-form-section">
+      <form class="login-form" id="login-form">
+        <h2>Log in to Exclusive</h2>
+        <p>Enter your details below</p>
+        <input type="text" id="login-email" name="email" placeholder="Email or Phone Number" required>
+        <input type="password" id="login-password" name="password" placeholder="Password" required>
+        <div class="form-actions">
+          <button class="btn-login" type="submit">Log In</button>
+          <a class="forgot-link" href="#">Forget Password?</a>
+        </div>
+        <div id="login-error" style="color:red;margin-top:10px;"></div>
+      </form>
+    </div>
+  </div>
+</main>
+    <!-- Footer -->
+    
+    <footer class="footer-main">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">Exclusive</div>
+                <div class="footer-title">Subscribe</div>
+                <div class="footer-desc">Get 10% off your first order</div>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                </form>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Support</div>
+                <div class="footer-desc">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</div>
+                <div class="footer-desc">exclusive@gmail.com</div>
+                <div class="footer-desc">+88015-88888-9999</div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Account</div>
+                <ul class="footer-list">
+                    <li>My Account</li>
+                    <li>Login / Register</li>
+                    <li>Cart</li>
+                    <li>Wishlist</li>
+                    <li>Shop</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Quick Link</div>
+                <ul class="footer-list">
+                    <li>Privacy Policy</li>
+                    <li>Terms Of Use</li>
+                    <li>FAQ</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Download App</div>
+                <div class="footer-desc">Save $3 with App New User Only</div>
+                <div class="footer-apps">
+    <img class="footer-app-img" src="assets/images/APP.png" alt="Download App QR and Badges">
+</div>
+                <div class="footer-socials">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
+        </div>
+    </footer>
+<script>
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  if(email === 'ahmed@test.com' && password === 'ahmed123') {
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userEmail', email);
+    window.location.href = '../index.html';
+  } else {
+    document.getElementById('login-error').textContent = 'Invalid email or password';
+  }
+});
+</script>
+</body>
+</html>

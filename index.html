@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Modern Ecommerce</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile-nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/loader.css">
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/loader.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/mobile-nav.js" defer></script>
+    
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-flex">
+            <span class="top-bar-message">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#">ShopNow</a></span>
+            <div class="top-bar-right">
+                <span>English</span>
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Tienda</div>
+<button class="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+            <nav>
+                <a href="index.html" class="active-link">Home</a>
+                <a href="pages/contact.html">Contact</a>
+                <a href="pages/about.html">About</a>
+                <a href="pages/account.html">Account</a>
+                <a href="pages/signup.html">Sign Up</a>
+            </nav>
+            <div class="search-cart">
+                <div class="search-box">
+                    <input type="text" placeholder="What are you looking for?">
+                    <span class="search-icon"><img src="assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+                </div>
+                <a href="pages/wishlist.html" class="icon-link"><img src="assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+                <a href="pages/cart.html" class="icon-link" style="position:relative;">
+                  <img src="assets/icons/Cart1.png" alt="Cart" class="icon-img">
+                  <span class="nav-cart-after" style="position:absolute;top:-8px;right:-8px;background:#DB4444;color:#fff;font-size:0.9em;padding:2px 7px;border-radius:50%;display:none;z-index:2;">0</span>
+                </a>
+                <div class="profile-menu-container" style="display:none; position:relative;">
+                  <div class="profile-icon" id="profileIcon" style="width:40px;height:40px;border-radius:50%;background:#DB4444;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                    <svg width="22" height="22" fill="#fff" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+                  </div>
+                  <div class="profile-dropdown" id="profileDropdown" style="display:none;position:absolute;top:48px;right:0;background:linear-gradient(135deg,#444 60%,#b47cff 100%);border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.18);padding:18px 0 10px 0;min-width:220px;z-index:100;">
+                    <a href="pages/account.html" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">👤</span>Manage My Account</a>
+                    <a href="#" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">📦</span>My Order</a>
+                    <a href="#" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">❌</span>My Cancellations</a>
+                    <a href="#" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">⭐</span>My Reviews</a>
+                    <a href="#" id="logoutBtn" class="profile-dropdown-item" style="display:flex;align-items:center;padding:10px 22px;color:#fff;text-decoration:none;font-size:1.1rem;gap:14px;"><span style="font-size:1.4em;">↩️</span>Logout</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Nav Overlay & Dropdown -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav-dropdown">
+      <button class="close-mobile-nav" aria-label="Close Menu"><i class="fa fa-times"></i></button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/account.html">Account</a>
+        <a href="pages/signup.html">Sign Up</a>
+      </nav>
+      <div class="search-cart">
+        <div class="search-box">
+          <input type="text" placeholder="What are you looking for?">
+          <span class="search-icon"><img src="assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+        </div>
+        <a href="pages/wishlist.html" class="icon-link"><img src="assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+        <a href="pages/cart.html" class="icon-link" style="position:relative;">
+          <img src="assets/icons/Cart1.png" alt="Cart" class="icon-img">
+          <span class="nav-cart-after" style="position:absolute;top:-8px;right:-8px;background:#DB4444;color:#fff;font-size:0.9em;padding:2px 7px;border-radius:50%;display:none;z-index:2;">0</span>
+        </a>
+      </div>
+    </div>
+    <main>
+        <div class="container main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul>
+                    <li>Woman's Fashion</li>
+                    <li>Men's Fashion</li>
+                    <li>Electronics</li>
+                    <li>Home & Lifestyle</li>
+                    <li>Medicine</li>
+                    <li>Sports & Outdoor</li>
+                    <li>Baby's & Toys</li>
+                    <li>Groceries & Pets</li>
+                    <li>Health & Beauty</li>
+                </ul>
+            </aside>
+            <!-- Hero Banner -->
+            <section class="hero-banner-slider">
+    <div class="hero-slider-track">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+            <div class="hero-slide-content">
+                <img src="assets/images/apple logo.png" alt="Apple Logo" class="hero-apple-logo">
+                <div class="hero-slide-title">iPhone 14 Series</div>
+                <h1 class="hero-slide-main">Up to 10%<br>off Voucher</h1>
+                <a href="#" class="hero-shop-now">Shop Now <span class="arrow">&rarr;</span></a>
+            </div>
+            <img src="assets/images/hero_endframe.png" alt="iPhone 14" class="hero-slide-img">
+        </div>
+        <!-- Slide 2: Example, you can add more slides here if you want -->
+        <div class="hero-slide">
+            <div class="hero-slide-content">
+                <img src="assets/images/apple logo.png" alt="Apple Logo" class="hero-apple-logo">
+                <div class="hero-slide-title">iPhone 14 Series</div>
+                <h1 class="hero-slide-main">Special Offer<br>on Accessories</h1>
+                <a href="#" class="hero-shop-now">Shop Now <span class="arrow">&rarr;</span></a>
+            </div>
+            <img src="assets/images/hero_endframe.png" alt="iPhone 14" class="hero-slide-img">
+        </div>
+        <!-- Slide 3: Example -->
+        <div class="hero-slide">
+            <div class="hero-slide-content">
+                <img src="assets/images/apple logo.png" alt="Apple Logo" class="hero-apple-logo">
+                <div class="hero-slide-title">iPhone 14 Series</div>
+                <h1 class="hero-slide-main">Free Shipping<br>on All Orders</h1>
+                <a href="#" class="hero-shop-now">Shop Now <span class="arrow">&rarr;</span></a>
+            </div>
+            <img src="assets/images/hero_endframe.png" alt="iPhone 14" class="hero-slide-img">
+        </div>
+    </div>
+    <div class="hero-slider-dots">
+        <span class="hero-dot active" data-slide="0"></span>
+        <span class="hero-dot" data-slide="1"></span>
+        <span class="hero-dot" data-slide="2"></span>
+    </div>
+</section>
+        </div>
+
+        <!-- Flash Sales -->
+<section class="flash-sales">
+    <div class="container">
+        <div class="flash-header-2025">
+            <div class="flash-bar"></div>
+            <div class="flash-label-row">
+                <span class="flash-label">Today's</span>
+            </div>
+            <div class="flash-main-row">
+                <span class="flash-title">Flash Sales</span>
+                <div class="flash-timer-2025" id="flash-timer">
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-days">03</span>
+                        <span class="timer-label">Days</span>
+                    </div>
+                    <span class="timer-dot">:</span>
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-hours">23</span>
+                        <span class="timer-label">Hours</span>
+                    </div>
+                    <span class="timer-dot">:</span>
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-minutes">19</span>
+                        <span class="timer-label">Minutes</span>
+                    </div>
+                    <span class="timer-dot">:</span>
+                    <div class="timer-segment">
+                        <span class="timer-value" id="timer-seconds">56</span>
+                        <span class="timer-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-carousel">
+            <!-- Products will be rendered here by main.js -->
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Browse By Category Section -->
+<section class="category-section">
+    <div class="container">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="flash-bar" style="margin-bottom: 0;"></div>
+                    <span class="flash-label" style="font-size: 1.1rem;">Categories</span>
+                </div>
+                <span class="cat-title" style="font-size: 2.2rem; font-weight: 700; margin-left: 0; margin-top: 0;">Browse By Category</span>
+            </div>
+            <div class="cat-arrows" style="margin-top: 8px;">
+                <button class="cat-arrow"><span>&larr;</span></button>
+                <button class="cat-arrow"><span>&rarr;</span></button>
+            </div>
+        </div>
+        <div class="category-list" style="margin-top: 28px;">
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-CellPhone.png" alt="Phones">
+                <span>Phones</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Computer.png" alt="Computers">
+                <span>Computers</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-SmartWatch.png" alt="SmartWatch">
+                <span>SmartWatch</span>
+            </div>
+            <div class="category-card active" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Camera.png" alt="Camera">
+                <span>Camera</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Headphone.png" alt="HeadPhones">
+                <span>HeadPhones</span>
+            </div>
+            <div class="category-card" style="width:170px;height:145px;">
+                <img src="assets/images/Category-Gamepad.png" alt="Gaming">
+                <span>Gaming</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Best Selling Products Section -->
+<section class="best-selling-section">
+    <div class="container">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="flash-bar" style="margin-bottom: 0;"></div>
+                    <span class="flash-label" style="color:#DB4444;font-size: 1.1rem;">This Month</span>
+                </div>
+                <span class="cat-title" style="font-size: 2.2rem; font-weight: 700; margin-left: 0; margin-top: 0;">Best Selling Products</span>
+            </div>
+            <button class="view-all-btn" style="margin-top: 8px; background: #DB4444; color: #fff; border: none; border-radius: 6px; padding: 12px 36px; font-size: 1.1rem; font-weight: 600; cursor: pointer;">View All</button>
+        </div>
+        <div class="product-carousel best-selling-carousel" style="margin-top: 30px; display: flex; gap: 28px;">
+            <div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/ff4444/fff&text=Coat" alt="Coat">
+    <h4>The north coat</h4>
+    <div class="price"><span class="price-main">$260</span> <del>$360</del></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+            <div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/44ff44/fff&text=Bag" alt="Bag">
+    <h4><em>Gucci duffle bag</em></h4>
+    <div class="price"><span class="price-main">$960</span> <del>$1160</del></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+<div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/4444ff/fff&text=CPU+Cooler" alt="CPU Cooler">
+    <h4>RGB liquid CPU Cooler</h4>
+    <div class="price"><span class="price-main">$160</span> <del>$170</del></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+<div class="product-card best">
+    <div class="product-card-icons-row">
+        <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+        <button class="icon-btn view-icon" title="View Product"><i class="fa fa-eye"></i></button>
+    </div>
+    <img src="https://dummyimage.com/200x200/d2b48c/fff&text=BookSelf" alt="BookSelf">
+    <h4><em>Small BookSelf</em></h4>
+    <div class="price"><span class="price-main">$360</span></div>
+    <div class="stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        <span class="count">(65)</span>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+        
+<!-- Music Experience Banner -->
+<section class="music-experience-banner">
+  <div class="music-banner-container">
+    <div class="music-banner-left">
+      <span class="music-cat-label">Categories</span>
+      <h2 class="music-banner-title">Enhance Your<br>Music Experience</h2>
+      <div class="music-banner-timer-row">
+        <div class="music-timer-circle"><span class="music-timer-num">23</span><span class="music-timer-label">Hours</span></div>
+        <div class="music-timer-circle"><span class="music-timer-num">05</span><span class="music-timer-label">Days</span></div>
+        <div class="music-timer-circle"><span class="music-timer-num">59</span><span class="music-timer-label">Minutes</span></div>
+        <div class="music-timer-circle"><span class="music-timer-num">35</span><span class="music-timer-label">Seconds</span></div>
+      </div>
+      <button class="music-buy-btn">Buy Now!</button>
+    </div>
+    <div class="music-banner-right">
+      <img src="assets/images/jbl.png" alt="JBL Speaker" class="music-banner-img">
+    </div>
+  </div>
+</section>
+<!-- Explore Our Products Section -->
+<section>
+    <div class="container">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+            <span style="background: #DB4444; width: 20px; height: 20px; border-radius: 4px;"></span>
+            <span style="color: #DB4444; font-weight: 500;">Our Products</span>
+        </div>
+        <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 32px;">Explore Our Products</h2>
+        <div class="products-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <span class="product-badge new">NEW</span>
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/dog-food.png" alt="Breed Dry Dog Food">
+                <div class="product-details">
+                    <div class="product-title">Breed Dry Dog Food</div>
+                    <div class="product-price-rating">
+                        <span class="price">$100</span>
+                        <span class="stars">★★★☆☆</span>
+                        <span class="reviews">(35)</span>
+                    </div>
+                    <div class="color-options">
+                        <span class="color-dot" style="background:#FFD700;"></span>
+                        <span class="color-dot" style="background:#C0C0C0;"></span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/camera.png" alt="CANON EOS DSLR Camera">
+                <div class="product-details">
+                    <div class="product-title">CANON EOS DSLR Camera</div>
+                    <div class="product-price-rating">
+                        <span class="price">$360</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(95)</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/laptop.png" alt="ASUS FHD Gaming Laptop">
+                <div class="product-details">
+                    <div class="product-title">ASUS FHD Gaming Laptop</div>
+                    <div class="product-price-rating">
+                        <span class="price">$700</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(325)</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/curology.png" alt="Curology Product Set">
+                <div class="product-details">
+                    <div class="product-title">Curology Product Set</div>
+                    <div class="product-price-rating">
+                        <span class="price">$500</span>
+                        <span class="stars">★★★★☆</span>
+                        <span class="reviews">(145)</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <span class="product-badge new">NEW</span>
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/kids-car.png" alt="Kids Electric Car">
+                <div class="product-details">
+                    <div class="product-title">Kids Electric Car</div>
+                    <div class="product-price-rating">
+                        <span class="price">$960</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(65)</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 6 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/cleats.png" alt="Jr. Zoom Soccer Cleats">
+                <div class="product-details">
+                    <div class="product-title">Jr. Zoom Soccer Cleats</div>
+                    <div class="product-price-rating">
+                        <span class="price">$1160</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(35)</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 7 -->
+            <div class="product-card">
+                <span class="product-badge new">NEW</span>
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/gamepad.png" alt="GP11 Shooter USB Gamepad">
+                <div class="product-details">
+                    <div class="product-title">GP11 Shooter USB Gamepad</div>
+                    <div class="product-price-rating">
+                        <span class="price">$660</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(55)</span>
+                    </div>
+                    <div class="color-options">
+                        <span class="color-dot" style="background:#111;"></span>
+                        <span class="color-dot" style="background:#ff3c3c;"></span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+            <!-- Product Card 8 -->
+            <div class="product-card">
+                <div class="product-card-icons-row">
+                    <button class="icon-btn wishlist-icon" title="Add to Wishlist"><i class="fa fa-heart"></i></button>
+                    <button class="icon-btn view-icon" title="Quick View"><i class="fa fa-eye"></i></button>
+                </div>
+                <img src="assets/images/jacket.png" alt="Quilted Satin Jacket">
+                <div class="product-details">
+                    <div class="product-title">Quilted Satin Jacket</div>
+                    <div class="product-price-rating">
+                        <span class="price">$660</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">(55)</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 32px;">
+            <button class="view-all-btn">View All Products</button>
+        </div>
+    </div>
+</section>
+
+  
+
+    <!-- Explore Our Products Section End -->
+    <!-- Services Section Start -->
+    <section class="services-section">
+        <div class="container services-container">
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="assets/icons/Services.png" alt="Delivery">
+                </div>
+                <div class="service-title">FREE AND FAST DELIVERY</div>
+                <div class="service-desc">Free delivery for all orders over $140</div>
+            </div>
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="assets/icons/Services2.png" alt="Customer Service">
+                </div>
+                <div class="service-title">24/7 CUSTOMER SERVICE</div>
+                <div class="service-desc">Friendly 24/7 customer support</div>
+            </div>
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="assets/icons/Services3.png" alt="Money Back Guarantee">
+                </div>
+                <div class="service-title">MONEY BACK GUARANTEE</div>
+                <div class="service-desc">We return money within 30 days</div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+        <img src="assets/icons/icons_arrow-up.png" alt="Up" />
+    </button>
+
+
+    <footer class="footer-main">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">Exclusive</div>
+                <div class="footer-title">Subscribe</div>
+                <div class="footer-desc">Get 10% off your first order</div>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                </form>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Support</div>
+                <div class="footer-desc">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</div>
+                <div class="footer-desc">exclusive@gmail.com</div>
+                <div class="footer-desc">+88015-88888-9999</div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Account</div>
+                <ul class="footer-list">
+                    <li><a href="pages/account.html">My Account</a></li>
+                    <li><a href="pages/signup.html">Login / Register</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/wishlist.html">Wishlist</a></li>
+                    <li><a href="index.html">Shop</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Quick Link</div>
+                <ul class="footer-list">
+                    <li>Privacy Policy</li>
+                    <li>Terms Of Use</li>
+                    <li>FAQ</li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Download App</div>
+                <div class="footer-desc">Save $3 with App New User Only</div>
+                <div class="footer-apps">
+    <img class="footer-app-img" src="assets/images/APP.png" alt="Download App QR and Badges">
+</div>
+                <div class="footer-socials">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
+        </div>
+    </footer>
+  <script>
+// Update cart badge on page load
+function updateCartBadge() {
+  if (window.cartAPI) {
+    const badge = document.querySelector('.nav-cart-after');
+    const count = window.cartAPI.getCartCount();
+    if (badge) {
+      badge.textContent = count;
+      badge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', updateCartBadge);
+</script>
+<script src="scripts/updateProductImages.js"></script>
+  <script src="scripts/productLinks.js"></script>
+<script>
+// Show/hide profile icon and dropdown based on login state
+function checkLoginProfileMenu() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const profileMenu = document.querySelector('.profile-menu-container');
+  if (profileMenu) profileMenu.style.display = isLoggedIn ? 'block' : 'none';
+}
+checkLoginProfileMenu();
+// Profile dropdown logic
+const profileIcon = document.getElementById('profileIcon');
+const profileDropdown = document.getElementById('profileDropdown');
+if (profileIcon && profileDropdown) {
+  profileIcon.addEventListener('click', function(e) {
+    e.stopPropagation();
+    profileDropdown.style.display = (profileDropdown.style.display === 'block') ? 'none' : 'block';
+  });
+  document.body.addEventListener('click', function() {
+    profileDropdown.style.display = 'none';
+  });
+  profileDropdown.addEventListener('click', function(e){e.stopPropagation();});
+}
+// Logout logic
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    window.location.reload();
+  });
+}
+</script>
+</body>
+<<<<<<< HEAD
+</html>
+=======
+</html>
+>>>>>>> b518cc1015a9d72cbb3066bc69a8cd0496751b80

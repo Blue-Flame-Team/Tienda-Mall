@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #000;
+}
+
+.signup-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    min-height: 100vh;
+}
+
+.image-section-original {
+    background: #eaf6fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* بدون حواف ولا ظل ولا تصغير */
+}
+.image-section-original img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.form-section {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 48px 40px 36px 40px;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-section h2 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-section p {
+    font-size: 1.03rem;
+    color: #888;
+    margin-bottom: 24px;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-section input {
+    padding: 13px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 7px;
+    font-size: 1.07rem;
+    background: #fafbfc;
+    outline: none;
+    transition: border 0.2s;
+}
+.form-section input:focus {
+    border-color: #db4444;
+}
+
+.create-account {
+    padding: 13px;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: #DB4444;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 2px;
+    transition: background 0.2s;
+}
+.create-account:hover {
+    background: #b92c2c;
+}
+
+.google-signup-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    font-size: 1.07rem;
+    cursor: pointer;
+    background-color: #fff;
+    color: #222;
+    font-weight: 500;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+.google-signup-btn:hover {
+    border-color: #999;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+}
+.google-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+}
+
+.form-section p {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.form-section a {
+    color: #222;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .signup-section {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .image-section-bg {
+        min-width: 100%;
+        min-height: 220px;
+    }
+    .form-section {
+        padding: 32px 16px 24px 16px;
+        max-width: 95vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .signup-wrapper {
+        padding: 18px 2px;
+    }
+    .image-section-bg {
+        min-width: 100%;
+        min-height: 120px;
+        border-radius: 14px;
+    }
+    .form-section {
+        border-radius: 12px;
+        padding: 18px 4vw 18px 4vw;
+        gap: 12px;
+    }
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+    .form-section input, .create-account, .google-signup-btn {
+        font-size: 0.98rem;
+        padding: 9px;
+    }
+}
+
+
+.image-section img {
+    max-width: 500px;
+}
+
+.form-section {
+    max-width: 400px;
+    width: 80%;
+}
+
+.form-section h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.form-section p {
+    font-size: 15px;
+    margin-bottom: 40px;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    /* hna kosm bt5ly al 7aga b4kl 3mooody t7t b3d kda */
+    gap: 15px;
+}
+
+.form-section input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    font-size: 13px;
+}
+
+.create-account {
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #DB4444;
+    color: #fff;
+}
+
+.google-signup {
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid #ccc;
+}

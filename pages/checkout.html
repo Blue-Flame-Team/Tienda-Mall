@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chekout</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/checkout.css">
+</head>
+
+<body>
+  <script src="../scripts/cart.js"></script>
+  <script>
+    function updateCartBadge() {
+      if (window.cartAPI) {
+        const badge = document.querySelector('.nav-cart-after');
+        const count = window.cartAPI.getCartCount();
+        if (badge) {
+          badge.textContent = count;
+          badge.style.display = count > 0 ? 'inline-block' : 'none';
+        }
+      }
+    }
+    document.addEventListener('DOMContentLoaded', updateCartBadge);
+  </script>
+
+    
+     <!-- Top Bar -->
+     <div class="top-bar">
+        <div class="container top-bar-flex">
+            <span class="top-bar-message">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#">ShopNow</a></span>
+            <div class="top-bar-right">
+                <span>English</span>
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo"><a href="../index.html">Tienda</a></div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../pages/contact.html">Contact</a>
+                <a href="#">About</a>
+                <a href="#">Sign Up</a>
+            </nav>
+            <div class="search-cart">
+                <div class="search-box">
+                    <input type="text" placeholder="What are you looking for?">
+                    <span class="search-icon"><img src="../assets/icons/Saearch.png" alt="Search" class="icon-img"></span>
+                </div>
+                <a href="/pages/wishlist.html" class="icon-link"><img src="../assets/icons/Wishlist.png" alt="Wishlist" class="icon-img"></a>
+                <a href="/pages/cart.html" class="icon-link"><img src="../assets/icons/Cart1.png" alt="Cart" class="icon-img"></a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="checkout-wrapper">
+      <div class="checkout-left">
+        <nav class="breadcrumb">
+          <a href="#">Account</a> /
+          <a href="#">My Account</a> /
+          <a href="#">Product</a> /
+          <a href="#">View Cart</a> /
+          <span>CheckOut</span>
+        </nav>
+        <h2>Billing Details</h2>
+        <form class="billing-form">
+          <label for="firstName">First Name*</label>
+          <input type="text" id="firstName" name="firstName" required>
+          <label for="companyName">Company Name</label>
+          <input type="text" id="companyName" name="companyName">
+          <label for="streetAddress">Street Address*</label>
+          <input type="text" id="streetAddress" name="streetAddress" required>
+          <label for="apartment">Apartment, floor, etc. (optional)</label>
+          <input type="text" id="apartment" name="apartment">
+          <label for="city">Town/City*</label>
+          <input type="text" id="city" name="city" required>
+          <label for="phoneNumber">Phone Number*</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" required>
+          <label for="emailAddress">Email Address*</label>
+          <input type="email" id="emailAddress" name="emailAddress" required>
+          <label class="save-info-container">
+            <input type="checkbox" checked>
+            <span class="checkmark"></span>
+            Save this information for faster check-out next time
+          </label>
+        </form>
+      </div>
+      <div class="checkout-right">
+        <div class="order-summary-details">
+          <div id="checkout-summary-items"></div>
+          <div class="summary-row"><span>Subtotal:</span><span id="summary-subtotal">$0</span></div>
+          <div class="summary-row"><span>Shipping:</span><span>Free</span></div>
+          <hr>
+          <div class="summary-row total"><strong>Total:</strong><strong id="summary-total">$0</strong></div>
+          <div class="payment-options">
+            <label><input type="radio" name="payment" value="bank"> <span>Bank</span> <span class="payment-icons"><img src="../assets/icons/visa.png"><img src="../assets/icons/mastercard.png"><img src="../assets/icons/bkash.png"></span></label>
+            <label><input type="radio" name="payment" value="cod" checked> <span>Cash on delivery</span></label>
+          </div>
+          <div class="coupon-section">
+            <input type="text" placeholder="Coupon Code">
+            <button>Apply Coupon</button>
+          </div>
+          <button class="place-order-button">Place Order</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<footer class="footer-main">
+    <div class="container footer-container">
+        <div class="footer-col">
+            <div class="footer-logo">Exclusive</div>
+            <div class="footer-title">Subscribe</div>
+            <div class="footer-desc">Get 10% off your first order</div>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit"><i class="fa fa-paper-plane"></i></button>
+            </form>
+        </div>
+        <div class="footer-col">
+            <div class="footer-title">Support</div>
+            <div class="footer-desc">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</div>
+            <div class="footer-desc">exclusive@gmail.com</div>
+            <div class="footer-desc">+88015-88888-9999</div>
+        </div>
+        <div class="footer-col">
+            <div class="footer-title">Account</div>
+            <ul class="footer-list">
+                <li>My Account</li>
+                <li>Login / Register</li>
+                <li>Cart</li>
+                <li>Wishlist</li>
+                <li>Shop</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <div class="footer-title">Quick Link</div>
+            <ul class="footer-list">
+                <li>Privacy Policy</li>
+                <li>Terms Of Use</li>
+                <li>FAQ</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <div class="footer-title">Download App</div>
+            <div class="footer-desc">Save $3 with App New User Only</div>
+            <div class="footer-apps">
+<img class="footer-app-img" src="../assets/images/APP.png" alt="Download App QR and Badges">
+</div>
+            <div class="footer-socials">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; Copyright Blue Flame 2025. All right reserved</span>
+    </div>
+</footer>
+
+
+  <script>
+// Render the order summary on the right dynamically from cart/sessionStorage
+function getProductImgPath(img) {
+  if (!img) return 'https://dummyimage.com/400x400/cccccc/fff&text=No+Image';
+  if (img.startsWith('assets/products/')) return '../' + img;
+  if (img.startsWith('assets/images/')) return '../assets/products/' + img.replace(/^.*[\\\/]/, '');
+  if (!img.startsWith('http')) return '../assets/products/' + img.replace(/^.*[\\\/]/, '');
+  return img;
+}
+
+function renderCheckoutSummary() {
+  let cart = [];
+  try {
+    cart = JSON.parse(sessionStorage.getItem('checkoutCart')) || [];
+  } catch { cart = []; }
+  if (!cart.length && window.cartAPI) {
+    cart = window.cartAPI.getCart();
+  }
+  const itemsDiv = document.getElementById('checkout-summary-items');
+  const subtotalSpan = document.getElementById('summary-subtotal');
+  const totalSpan = document.getElementById('summary-total');
+  if (!cart.length) {
+    itemsDiv.innerHTML = '<div style="color:red">No items in cart.</div>';
+    subtotalSpan.textContent = '$0';
+    totalSpan.textContent = '$0';
+    return;
+  }
+  let subtotal = 0;
+  itemsDiv.innerHTML = cart.map(item => `
+    <div class="item">
+      <div class="item-info">
+        <img src="${getProductImgPath(item.image)}" alt="${item.name}">
+        <span>${item.name}${item.quantity && item.quantity > 1 ? ` <small>x${item.quantity}</small>` : ''}</span>
+      </div>
+      <span>$${item.price * (item.quantity || 1)}</span>
+    </div>
+  `).join('');
+  subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  subtotalSpan.textContent = `$${subtotal}`;
+  totalSpan.textContent = `$${subtotal}`;
+}
+document.addEventListener('DOMContentLoaded', renderCheckoutSummary);
+window.addEventListener('focus', renderCheckoutSummary);
+// Also update summary if cart/sessionStorage is changed (e.g. by another tab)
+window.addEventListener('storage', function(e) {
+  if (e.key === 'checkoutCart') renderCheckoutSummary();
+});
+// For SPA navigation or dynamic cart changes, poll every 1s
+setInterval(renderCheckoutSummary, 1000);
+</script>
+</body>
+
+</html>
